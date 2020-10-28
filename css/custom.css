@@ -26,8 +26,8 @@
 }
 
 .card .responsive-img {
-    width: 15rem;
-    height: 15rem;
+    width: 13rem;
+    height: 13rem;
     display: flex;
     align-items: center;
 }
@@ -35,7 +35,7 @@
 .card img {
     display: block;
     width: 100%;
-    max-width: 15rem;
+    max-width: 13rem;
     height: auto;
     margin-left: auto;
     margin-right: auto;
