@@ -5855,7 +5855,7 @@ a.badge-dark:focus {
 }
 
 .alert-primary {
-    color: #rgb(163, 106, 1);;
+    color: rgb(163, 106, 1);
     background-color: rgb(255, 238, 208);
     border-color: rgb(255, 225, 170)
 }
@@ -7348,7 +7348,7 @@ a.bg-primary:focus,
 a.bg-primary:hover,
 button.bg-primary:focus,
 button.bg-primary:hover {
-    background-color: rgb(211, 137, 0); !important
+    background-color: rgb(211, 137, 0) !important
 }
 
 .bg-secondary {
