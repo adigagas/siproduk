@@ -6068,7 +6068,6 @@ a.badge-dark:focus {
     z-index: 1;
     color: #363636;
     text-decoration: none;
-    background-color: rgb(255, 199, 96)
 }
 
 .list-group-item-action:active {
