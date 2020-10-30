@@ -2368,9 +2368,10 @@ pre code {
 .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #80bdff;
+    border-color: rgb(255, 194, 81);
     outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+    box-shadow: 0 0 0 .2rem rgba(255, 166, 0, .25)
+
 }
 
 .form-control::-webkit-input-placeholder {
@@ -2646,7 +2647,8 @@ textarea.form-control.is-valid {
 
 .custom-control-input.is-valid:focus~.custom-control-label::before,
 .was-validated .custom-control-input:valid:focus~.custom-control-label::before {
-    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .25)
+    box-shadow: 0 0 0 .2rem rgba(255, 166, 0, .25)
+
 }
 
 .custom-control-input.is-valid:focus:not(:checked)~.custom-control-label::before,
@@ -4226,11 +4228,11 @@ input[type=submit].btn-block {
 }
 
 .custom-control-input:focus~.custom-control-label::before {
-    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+    box-shadow: 0 0 0 .2rem rgba(255, 166, 0, .25)
 }
 
 .custom-control-input:focus:not(:checked)~.custom-control-label::before {
-    border-color: #80bdff
+    border-color: rgb(255, 209, 124)
 }
 
 .custom-control-input:not(:disabled):active~.custom-control-label::before {
@@ -4297,11 +4299,11 @@ input[type=submit].btn-block {
 }
 
 .custom-checkbox .custom-control-input:disabled:checked~.custom-control-label::before {
-    background-color: rgba(0, 123, 255, .5)
+    background-color: rgb(255, 166, 0, .5)
 }
 
 .custom-checkbox .custom-control-input:disabled:indeterminate~.custom-control-label::before {
-    background-color: rgba(0, 123, 255, .5)
+    background-color: rgb(255, 166, 0, .5)
 }
 
 .custom-radio .custom-control-label::before {
@@ -4313,7 +4315,7 @@ input[type=submit].btn-block {
 }
 
 .custom-radio .custom-control-input:disabled:checked~.custom-control-label::before {
-    background-color: rgba(0, 123, 255, .5)
+    background-color: rgb(255, 166, 0, .5)
 }
 
 .custom-switch {
@@ -4352,7 +4354,7 @@ input[type=submit].btn-block {
 }
 
 .custom-switch .custom-control-input:disabled:checked~.custom-control-label::before {
-    background-color: rgba(0, 123, 255, .5)
+    background-color: rgb(255, 166, 0, .5)
 }
 
 .custom-select {
@@ -4376,7 +4378,8 @@ input[type=submit].btn-block {
 .custom-select:focus {
     border-color: #80bdff;
     outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+    box-shadow: 0 0 0 .2rem rgba(255, 166, 0, .5)
+
 }
 
 .custom-select:focus::-ms-value {
@@ -4439,8 +4442,9 @@ input[type=submit].btn-block {
 }
 
 .custom-file-input:focus~.custom-file-label {
-    border-color: #80bdff;
-    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+    border-color: rgb(255, 219, 153);
+    box-shadow: 0 0 0 .2rem rgba(255, 166, 0, .25)
+
 }
 
 .custom-file-input:disabled~.custom-file-label,
@@ -6062,9 +6066,9 @@ a.badge-dark:focus {
 .list-group-item-action:focus,
 .list-group-item-action:hover {
     z-index: 1;
-    color: #495057;
+    color: #363636;
     text-decoration: none;
-    background-color: #f8f9fa
+    background-color: rgb(255, 199, 96)
 }
 
 .list-group-item-action:active {
@@ -6271,7 +6275,7 @@ a.badge-dark:focus {
 }
 
 .list-group-flush>.list-group-item {
-    border-width: 0 0 1px
+    border-width: 0 0 0
 }
 
 .list-group-flush>.list-group-item:last-child {
@@ -6291,8 +6295,8 @@ a.badge-dark:focus {
 
 .list-group-item-primary.list-group-item-action.active {
     color: #fff;
-    background-color: #rgb(163, 106, 1);;
-    border-color: #rgb(163, 106, 1);
+    background-color: rgb(163, 106, 1);
+    border-color: rgb(163, 106, 1);
 }
 
 .list-group-item-secondary {

@@ -1,11 +1,10 @@
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+nav .user-img {
+    width: 30px;
+    height: 30px;
 }
 
-.contaoner .card {
-    flex: 1;
+
+.card {
     text-decoration: none;
 }
 
@@ -13,27 +12,15 @@
     text-decoration: none;
 }
 
-.container .pencarian {
-    flex: 4;
-}
-
-.container .pencarian nav {
-    justify-self: flex-end;
-}
-
-.container .pagi {
-    flex: 4;
-}
-
 .card .responsive-img {
     width: 12rem;
     height: 12rem;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .card img {
-    display: block;
     width: 100%;
     max-width: 12rem;
     max-height: 12rem;
@@ -44,7 +31,6 @@
 
 .card .card-body .card-title {
     color: rgb(0, 0, 0);
-    text-transform: uppercase;
 }
 
 .card .card-body .card-price {
@@ -53,6 +39,14 @@
 
 .card .card-body p {
     color: black;
+}
+
+.card .card-body small {
+    color: black;
+}
+
+.product-card {
+    width: 13rem;
 }
 
 .product-card:hover {
