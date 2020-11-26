@@ -32,11 +32,11 @@
     <div class="bg-white border-right" id="sidebar-wrapper">
       <div class="sidebar-heading text-center"><h5>PRODUK TRANSAKSI</h5></div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-chart-area"></i> Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action text-primary"><i class="fas fa-gift"></i> Produk</a>
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-tag"></i> Katgori</a>
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-store"></i> Penjual</a>
-        <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-clipboard-check"></i> Transaksi</a>
+        <a href="index.html" class="list-group-item list-group-item-action"><i class="fas fa-chart-area"></i> Dashboard</a>
+        <a href="produk.html" class="list-group-item list-group-item-action text-primary"><i class="fas fa-gift"></i> Produk</a>
+        <a href="kategori.html" class="list-group-item list-group-item-action"><i class="fas fa-tag"></i> Kategori</a>
+        <a href="penjual.html" class="list-group-item list-group-item-action"><i class="fas fa-store"></i> Penjual</a>
+        <a href="transaksi.html" class="list-group-item list-group-item-action"><i class="fas fa-clipboard-check"></i> Transaksi</a>
         <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-user"></i> Akun</a>
       </div>
     </div>
@@ -79,7 +79,7 @@
                   <h5 class="card-title">Harga</h5>
                   <form>
                     <div class="form-group">
-                      <input type="currency" class="form-control"  id="hargamin" placeholder="Harga Minimal Rp.">
+                      <input type="number" class="form-control"  id="hargamin" placeholder="Harga Minimal Rp.">
                     </div>
                     <div class="form-group">
                       <input type="number" class="form-control" id="hargamax" placeholder="Harga Maksimal Rp.">
@@ -458,17 +458,22 @@
               </div>
             </div>
             
-            <div class="container mb-4">
+            <div class="container-fluid mb-4">
               <div class="row ml-5">
-                <span class="text-secondary">Menampilkan <b class="text-dark">20</b> dari <b class="text-dark">123</b> Hasil</span>
+                <div class="col-md">
+                  <span class="text-secondary">Menampilkan <b class="text-dark">10</b> dari <b class="text-dark">57</b> Hasil</span>
+                </div>
+                <div class="col-md text-right">
+                  <a href="tambah produk.html" class="btn btn-secondary"><i class="fas fa-plus"></i> Produk Baru</a>
+                </div>
               </div>
             </div>
 
             <div class="d-flex flex-wrap">
               
-              <a class=" card product-card mb-3 mr-1" href="#"">
+              <a class=" card product-card mb-3 mr-1" href="detail produk.html"">
                 <div class="responsive-img rounded align-self-center mt-1 bg-white">
-                  <img src="https://ecs7.tokopedia.net/img/cache/700/product-1/2014/3/23/3536457/3536457_0ea4ab2c-b247-11e3-aa0b-d3b62523fab8.jpg " class="" alt="...">
+                  <img src="https://ecs7.tokopedia.net/img/cache/700/product-1/2014/3/23/3536457/3536457_0ea4ab2c-b247-11e3-aa0b-d3b62523fab8.jpg" class="" alt="...">
                 </div>
                 <div class="card-body">
                   <h6 class="card-title">Buku Tulis KIKO 58lbr</h6>
@@ -535,26 +540,32 @@
             </div>
 
             <div class="container-fluid mt-5 mr-5">
-              <div class="row justify-content-end">
-                <nav class="" aria-label="...">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <span class="page-link">Previous</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                      <span class="page-link">
-                        2
-                        <span class="sr-only">(current)</span>
-                      </span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">Next</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
+              <nav class="float-right" aria-label="...">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <span class="page-link">
+                      <i class="fas fa-angle-double-left"></i>
+                    </span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">
+                      2
+                      <span class="sr-only">(current)</span>
+                    </span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">
+                      <i class="fas fa-angle-double-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
 
           </div>
