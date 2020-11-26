@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <!-- my font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+
+    <!-- fontawesome icons -->
+    <link href="../vendor/fontawesome/css/all.css" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            ADMIN
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="index.html" class="text-primary">
+                    <i class="icon-16 fas fa-columns"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="produk.html">
+                    <i class="icon-16 fas fa-gift"></i> Produk
+                </a>
+            </li>
+            <li>
+                <a href="kategori.html">
+                    <i class="icon-16 fas fa-tag"></i> Kategori
+                </a>
+            </li>
+            <li>
+                <a href="penjual.html">
+                    <i class="icon-16 fas fa-store"></i> Penjual
+                </a>
+            </li>
+            <li>
+                <a href="transaksi.html">
+                    <i class="icon-16 fas fa-clipboard-check"></i> Transaksi
+                </a>
+            </li>
+            <li>
+                <a href="akun.html">
+                    <i class="icon-16 fas fa-user"></i> Akun
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- end Sidebar -->
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <button class="btn btn-primary" id="toggle" value="close" onclick="toggle()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <span class="user-menu">
+            Admin
+            <img src="https://png.pngtree.com/png-vector/20190418/ourlarge/pngtree-vector-book-icon-png-image_949897.jpg " alt="">
+            <ul class="dropdown-content">
+                <li>
+                    <a href="">
+                        <i class="fas fa-tools"></i> Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="logout-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </span>
+    </nav>
+    <!-- end Navbar -->
+
+    <!-- Content -->
+    <div class="content" id="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md text-accent mb-3">
+                    <h4>Dashboard</h4>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- end Content -->
+
+    <!-- collapse sidebar js -->
+    <script>
+        function toggle(){
+            currentvalue = document.getElementById('toggle').value;
+            if(currentvalue == "close"){
+                close_sidebar();
+                document.getElementById("toggle").value="open";
+            }else{
+                open_sidebar();
+                document.getElementById("toggle").value="close";
+            }
+        }
+
+        function close_sidebar() {
+            document.getElementById("content").style.marginLeft = "0px";
+            document.getElementById("content").style.width = "100%";
+            document.getElementById("navbar").style.marginLeft = "0px";
+            document.getElementById("navbar").style.width = "100%";
+            document.getElementById("sidebar").style.position = "stiky";
+            document.getElementById("sidebar").style.marginLeft = "-230px";
+            // document.getElementById("close-sidebar").style.display = "none";
+            // document.getElementById("open-sidebar").style.display = "block";
+        }
+        function open_sidebar() {
+            document.getElementById("content").style.marginLeft = "230px";
+            document.getElementById("content").style.width = "calc(100% - 230px)";
+            document.getElementById("navbar").style.marginLeft = "230px";
+            document.getElementById("navbar").style.width = "calc(100% - 230px)";
+            document.getElementById("sidebar").style.position = "fixed";
+            document.getElementById("sidebar").style.marginLeft = "0px";
+            // document.getElementById("close-sidebar").style.display = "block";
+            // document.getElementById("open-sidebar").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

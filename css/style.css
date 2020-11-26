@@ -1,0 +1,265 @@
+:root {
+    --primaryColor: #1CB3CB;
+    --primaryColorLight: #59D7EB;
+    --primaryColorDark: #1da6bb;
+    --secondaryColor: #738598;
+    --secondaryColorLight: #DFE2E2;
+    --acentColor: #3C415E;
+    --dangerColor: #FF3737;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.material-icons-outlined {
+    margin-top: 10px;
+}
+
+.material-icons-outlined.md-48 {
+    font-size: 48px;
+}
+
+.auth-bg {
+    height: 100vh;
+    background-color: #DFE2E2;
+}
+
+.auth-card {
+    width: 400px;
+}
+
+.auth-card .auth-card-header {
+    background-color: #3C415E;
+}
+
+.auth-card-header h1 {
+    font-weight: 700;
+}
+
+.auth-card .card-title {
+    color: #3C415E;
+    font-weight: 700;
+}
+
+.sidebar {
+    position: fixed;
+    z-index: 5;
+    width: 230px;
+    height: 900px;
+    left: 0px;
+    top: 0px;
+    background-color: #3C415E;
+    box-shadow: 0px 0px 5px var(--acentColor);
+    transition: all .5s;
+}
+
+.sidebar .sidebar-header {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 10px;
+}
+
+.sidebar .sidebar-menu {
+    list-style: none;
+    padding-top: 32px;
+}
+
+.sidebar-menu li {
+    padding-bottom: 16px;
+    color: white;
+}
+
+.sidebar .sidebar-menu a {
+    text-decoration: none;
+    color: white;
+    transition: color .4s;
+}
+
+.sidebar-menu a:hover {
+    color: #1CB3CB;
+}
+
+.sidebar .sidebar-menu a i {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.navbar {
+    /* overflow: hidden; */
+    position: fixed;
+    z-index: 4;
+    width: calc(100% - 230px);
+    height: 60px;
+    margin-left: 230px;
+    top: 0px;
+    background-color: var(--secondaryColor);
+    box-shadow: 0px 0px 5px var(--secondaryColor);
+    transition: all .5s;
+}
+
+.content {
+    width: calc(100% - 230px);
+    min-height: calc(100vh - 60px);
+    margin-left: 230px;
+    margin-top: 60px;
+    background-color: var(--secondaryColorLight);
+    padding-top: 16PX;
+    transition: all .5s;
+}
+
+.card.card-item {
+    width: calc(25% - 10px);
+    min-width: 200px;
+    transition: all .2s ease-in-out;
+    margin-bottom: 16px;
+}
+
+.card.card-item .item-name {
+    color: black;
+    font-weight: 700;
+    padding-bottom: 16px;
+}
+
+.card.card-item .item-price {
+    color: var(--primaryColor);
+    font-weight: 700;
+    padding-bottom: 16px;
+}
+
+
+.card.card-item:hover {
+    cursor: pointer;
+    border: 1px solid var(--primaryColor);
+    transform: scale(1.02);
+}
+
+.btn.btn-outline-primary {
+    background-color: white;
+}
+
+.btn.btn-outline-primary:hover {
+    background-color: var(--primaryColor);
+    color: white;
+}
+
+.img-res {
+    /* background-color: blue; */
+    overflow: hidden;
+    height: auto;
+    padding: 5px;
+}
+
+.filter-btn {
+    display: none;
+}
+
+.filter-card {
+    transition: margin-top 0.5s;
+    display: block;
+}
+
+.user-menu {
+    color: white;
+}
+
+.user-menu li {
+    color: #738598;
+    margin-bottom: 16px;
+}
+
+.user-menu li:last-child {
+    margin-bottom: 0px;
+}
+
+.user-menu img {
+    width: 32px;
+    margin-left: 8px;
+    border-radius: 50%;
+}
+
+.user-menu:hover {
+    cursor: pointer;
+    animation-delay: 1s;
+    transition: all 1s;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: auto;
+    color: black;
+    list-style: none;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 20px;
+    right: 16px;
+    box-shadow: 0px 0px 5px var(--secondaryColor);
+    /* z-index: 6; */
+}
+
+.user-menu .dropdown-content::before {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 100px;
+    margin-top: -100px;
+    right: 0px;
+    background-color: transparent';
+
+}
+
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+
+.user-menu .dropdown-content li:after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 120%;
+    margin-top: 16px;
+    margin-left: -10%;
+    background-color: var(--secondaryColorLight);
+}
+
+.user-menu .dropdown-content li:last-child:after {
+    display: none;
+}
+
+.dropdown-content li a {
+    text-decoration: none;
+    color: var(--secondaryColor);
+    transition: color 0.2s ease-in-out;
+}
+
+.dropdown-content li a:hover {
+    color: var(--primaryColor);
+}
+
+.dropdown-content li a.logout-link:hover {
+    color: var(--dangerColor);
+}
+
+.text-accent {
+    color: var(--acentColor);
+}
+
+@media only screen and (min-width: 0px) {
+    .filter-card {
+        display: none;
+    }
+
+    .filter-btn {
+        display: block;
+    }
+}
