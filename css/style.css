@@ -114,11 +114,16 @@ body {
     transition: all .5s;
 }
 
+.card .card-title {
+    padding-bottom: 32px;
+}
+
 .card.card-item {
     width: calc(25% - 10px);
     min-width: 200px;
     transition: all .2s ease-in-out;
     margin-bottom: 16px;
+    text-decoration: none;
 }
 
 .card.card-item .item-name {
@@ -252,6 +257,134 @@ body {
 
 .text-accent {
     color: var(--acentColor);
+}
+
+.store-list {
+    padding-left: 0px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+}
+
+.store-list li {
+    width: 100%;
+}
+
+.store-list li .store-header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.store-list li .store-header .store-title {
+    padding-left: 16px;
+    font-weight: 700;
+    width: 50%;
+}
+
+.store-list li .store-body {
+    padding-top: 16px;
+}
+
+.store-list li .store-body .store-price {
+    color: #1CB3CB;
+    font-weight: 400;
+}
+
+.store-list li .store-footer .btn {
+    width: 100%;
+}
+
+.store-list li:after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: #DFE2E2;
+}
+
+.store-list li:first-child::after {
+    display: none;
+}
+
+.store-list li img {
+    max-width: 100px;
+    border: 1px solid #1CB3CB;
+    align-items: center;
+}
+
+.showcase {
+    width: 100%;
+}
+
+.showcase .show {
+    border: 1px solid #1CB3CB;
+}
+
+.showcase .img-thumb {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-left: 0px;
+    list-style: none;
+}
+
+.showcase .img-thumb li {
+    width: 20%;
+}
+
+.showcase .img-thumb li a img {
+    border: 2px solid transparent;
+}
+
+.showcase .img-thumb li.active a img {
+    border: 2px solid #1CB3CB;
+}
+
+.showcase .img-thumb li a img:hover {
+    border: 2px solid #1CB3CB;
+}
+
+.produk-info .produk-body .produk-price {
+    color: #1CB3CB;
+    font-weight: 700;
+}
+
+.produk-info .produk-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.produk-info .produk-footer .btn {
+    width: 45%;
+}
+
+.produk-info .produk-header::after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: #DFE2E2;
+}
+
+.produk-info .produk-body::after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 23px;
+    background-color: #DFE2E2;
+}
+
+.card .card-body .section {
+    padding-bottom: 48px;
 }
 
 @media only screen and (min-width: 0px) {

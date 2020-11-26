@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <!-- bootstrap jquery & js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.js"></script>
+
+    <!-- my font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+
+    <!-- fontawesome icons -->
+    <link href="../vendor/fontawesome/css/all.css" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            ADMIN
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="index.html">
+                    <i class="icon-16 fas fa-columns"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="produk.html"  class="text-primary">
+                    <i class="icon-16 fas fa-gift"></i> Produk
+                </a>
+            </li>
+            <li>
+                <a href="kategori.html">
+                    <i class="icon-16 fas fa-tag"></i> Kategori
+                </a>
+            </li>
+            <li>
+                <a href="penjual.html">
+                    <i class="icon-16 fas fa-store"></i> Penjual
+                </a>
+            </li>
+            <li>
+                <a href="transaksi.html">
+                    <i class="icon-16 fas fa-clipboard-check"></i> Transaksi
+                </a>
+            </li>
+            <li>
+                <a href="akun.html">
+                    <i class="icon-16 fas fa-user"></i> Akun
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- end Sidebar -->
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <button class="btn btn-primary" id="toggle" value="close" onclick="toggle()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <span class="user-menu">
+            Admin
+            <img src="https://png.pngtree.com/png-vector/20190418/ourlarge/pngtree-vector-book-icon-png-image_949897.jpg " alt="">
+            <ul class="dropdown-content">
+                <li>
+                    <a href="">
+                        <i class="fas fa-tools"></i> Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="logout-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </span>
+    </nav>
+    <!-- end Navbar -->
+
+    <!-- Content -->
+    <div class="content" id="content">
+
+        <!-- Page Title -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md text-accent mb-3">
+                    <h4>Dashboard</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Fill -->
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- Produk -->
+                <div class="col">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="showcase">  
+                                        <div class="show">
+                                            <img src="https://cdn.dribbble.com/users/1860775/screenshots/6550972/s_kitap_logo.png" alt="" class="img-fluid img-show">
+                                        </div>
+                                        <ul class="img-thumb">
+                                            <li class="active"><a href=""><img src="https://cdn.dribbble.com/users/1860775/screenshots/6550972/s_kitap_logo.png" alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="https://cdn.dribbble.com/users/1860775/screenshots/6550972/s_kitap_logo.png" alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="https://cdn.dribbble.com/users/1860775/screenshots/6550972/s_kitap_logo.png" alt="" class="img-fluid"></a></li>
+                                            <li><a href=""><img src="https://cdn.dribbble.com/users/1860775/screenshots/6550972/s_kitap_logo.png" alt="" class="img-fluid"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="produk-info">
+                                        <div class="produk-header">
+                                            <h4 class="produk-title">
+                                                Buku Tulis
+                                            </h4>
+                                            <div class="produk-sub-title">
+                                                Merek/Penerbit <b>KIKO</b>
+                                            </div>
+                                        </div>
+                                        <div class="produk-body">
+                                            <span>Harga</span>
+                                            <h4 class="produk-price">
+                                                Rp. 500.000 ~ Rp. 540.000
+                                            </h4>
+                                            <small>
+                                                <i>Harga dapat di cek di toko melalui link di samping</i>
+                                            </small>
+                                        </div>
+                                        <div class="produk-footer">
+                                            <a href="" class="btn btn-secondary">
+                                                <i class="fas fa-edit"></i> Sunting
+                                            </a>
+                                            <a href="" class="btn btn-danger">
+                                                <i class="fas fa-trash-alt"></i> Hapus
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="section">
+                                <h5 class="card-title">
+                                    Informasi Produk
+                                </h5>
+                                <table class="desc-table">
+                                    <tr>
+                                        <td class="desc-title">No SKU</td>
+                                        <td>:</td>
+                                        <td>2398701234987</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc-title">Kategori</td>
+                                        <td>:</td>
+                                        <td>Buku Tulis</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc-title">Merek/Penerbit</td>
+                                        <td>:</td>
+                                        <td>KIKO</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc-title">Kondisi</td>
+                                        <td>:</td>
+                                        <td>Baru</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc-title">Garansi</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc-title">Panjang</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc-title">Lebar</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc-title">Tinggi</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="desc-title">Berat</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <div class="section">
+                                <h5 class="card-title">
+                                    Deskripsi
+                                </h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend ligula nullam gravida enim sed dignissim. Arcu nullam mattis lacus nunc, vitae sed ipsum. Egestas laoreet quam nullam porttitor. Dignissim rhoncus purus tristique aliquet arcu consequat.
+                                    <br>
+                                    <br>
+                                    Interface : SATA III
+                                    <br>
+                                    Read : 500MBps
+                                    <br>
+                                    Write : 250MBps
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end Produk -->
+
+
+                <!-- Penjual -->
+                <div class="col-xl-3 col-lg-4 col-md-5">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                Penjual
+                            </h5>
+
+                            <ul class="store-list">
+                                <li>
+                                    <div class="store-header">
+                                        <img src="https://png.pngtree.com/template/20191219/ourlarge/pngtree-modern-and-colorful-city-shop-logo-vector-illustration-image_341547.jpg" alt="" class="img-fluid">
+                                        <h6 class="store-title">Toko Araya Media Solution</h6>
+                                    </div>
+                                    <div class="store-body">
+                                        <span><small>harga di toko ini</small></span>
+                                        <h6 class="store-price">
+                                            Rp. 500.000
+                                        </h6>
+                                    </div>
+                                    <div class="store-footer">
+                                        <span><small>lihat produk di toko ini</small></span>
+                                        <a href="" class="btn btn-primary">Shopee</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="store-header">
+                                        <img src="https://i.pinimg.com/originals/33/c4/36/33c4364bfa91582c7b5c44b3e4fa7cbf.png" alt="" class="img-fluid">
+                                        <h6 class="store-title">Toko Araya Media Solution</h6>
+                                    </div>
+                                    <div class="store-body">
+                                        <span><small>harga di toko ini</small></span>
+                                        <h6 class="store-price">
+                                            Rp. 500.000
+                                        </h6>
+                                    </div>
+                                    <div class="store-footer">
+                                        <span><small>lihat produk di toko ini</small></span>
+                                        <a href="" class="btn btn-primary">Shopee</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="store-header">
+                                        <img src="https://i.pinimg.com/originals/c7/91/14/c7911473aab5fc77a12de155eb4ab651.jpg" alt="" class="img-fluid">
+                                        <h6 class="store-title">Toko Araya Media Solution</h6>
+                                    </div>
+                                    <div class="store-body">
+                                        <span><small>harga di toko ini</small></span>
+                                        <h6 class="store-price">
+                                            Rp. 500.000
+                                        </h6>
+                                    </div>
+                                    <div class="store-footer">
+                                        <span><small>lihat produk di toko ini</small></span>
+                                        <a href="" class="btn btn-primary">Shopee</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end Penjual -->
+            </div>
+        </div>
+        
+    </div>
+    <!-- end Content -->
+
+    <!-- collapse sidebar js -->
+    <script>
+        function toggle(){
+            currentvalue = document.getElementById('toggle').value;
+            if(currentvalue == "close"){
+                close_sidebar();
+                document.getElementById("toggle").value="open";
+            }else{
+                open_sidebar();
+                document.getElementById("toggle").value="close";
+            }
+        }
+
+        function close_sidebar() {
+            document.getElementById("content").style.marginLeft = "0px";
+            document.getElementById("content").style.width = "100%";
+            document.getElementById("navbar").style.marginLeft = "0px";
+            document.getElementById("navbar").style.width = "100%";
+            document.getElementById("sidebar").style.position = "stiky";
+            document.getElementById("sidebar").style.marginLeft = "-230px";
+            // document.getElementById("close-sidebar").style.display = "none";
+            // document.getElementById("open-sidebar").style.display = "block";
+        }
+        function open_sidebar() {
+            document.getElementById("content").style.marginLeft = "230px";
+            document.getElementById("content").style.width = "calc(100% - 230px)";
+            document.getElementById("navbar").style.marginLeft = "230px";
+            document.getElementById("navbar").style.width = "calc(100% - 230px)";
+            document.getElementById("sidebar").style.position = "fixed";
+            document.getElementById("sidebar").style.marginLeft = "0px";
+            // document.getElementById("close-sidebar").style.display = "block";
+            // document.getElementById("open-sidebar").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
