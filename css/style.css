@@ -387,6 +387,11 @@ body {
     padding-bottom: 48px;
 }
 
+.side-panel {
+    position: fixed;
+    max-width: 300px;
+}
+
 @media only screen and (min-width: 0px) {
     .filter-card {
         display: none;
