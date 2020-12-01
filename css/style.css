@@ -1,10 +1,13 @@
 :root {
     --primaryColor: #1CB3CB;
-    --primaryColorLight: #59D7EB;
+    --primaryColorLight: #35cee6;
     --primaryColorDark: #1da6bb;
     --secondaryColor: #738598;
     --secondaryColorLight: #DFE2E2;
     --accentColor: #3C415E;
+    --successColor: #9DE16F;
+    --warningColor: #F8C830;
+    --orangeColor: #FF8337;
     --dangerColor: #FF3737;
 }
 
@@ -12,15 +15,170 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.btn.btn-primary
+.btn.btn-primary {
+    background-color: var(--primaryColor);
+    border-color: var(--primaryColor);
+}
+
+.btn-primary:hover {
+    background-color: var(--primaryColorLight);
+    border-color: var(--primaryColor);
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    background-color: var(--primaryColorLight);
+    border-color: var(--primaryColor);
+    box-shadow: 0 0 0 0.2rem rgba(28, 179, 203, .5);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: var(--primaryColorLight);
+    border-color: var(--primaryColor);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(28, 179, 203, .5);
+}
 
 .btn.btn-outline-primary {
     background-color: white;
+    border-color: var(--primaryColor);
+    color: var(--primaryColor);
 }
 
 .btn.btn-outline-primary:hover {
     background-color: var(--primaryColor);
     color: white;
+}
+
+.text-primary {
+    color: var(--primaryColor) !important;
+}
+
+.bg-primary {
+    background-color: var(--primaryColor) !important;
+}
+
+.bg-success {
+    background-color: var(--successColor) !important;
+}
+
+.bg-warning {
+    background-color: var(--warningColor) !important;
+}
+
+.bg-orange {
+    background-color: var(--orangeColor) !important;
+}
+
+.bg-danger {
+    background-color: var(--dangerColor) !important;
+}
+
+a.text-primary:hover,
+a.text-primary:focus {
+    color: var(--primaryColorDark) !important;
+}
+
+.pagination {
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+}
+
+.page-item {
+    padding-right: 8px;
+}
+
+.page-item:last-child {
+    padding-right: 0px;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: var(--primaryColor);
+    background-color: #fff;
+    border: 1px solid var(--primaryColor);
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: white;
+    text-decoration: none;
+    background-color: var(--primaryColorLight);
+    border-color: var(--primaryColor);
+}
+
+.page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(28, 179, 203, .5);
+}
+
+.page-item .page-link {
+    margin-left: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: var(--primaryColor);
+    border-color: var(--primaryColor);
+}
+
+.page-item.disabled .page-link {
+    color: var(--secondaryColor);
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: var(--secondaryColor);
+}
+
+.pagination-lg .page-link {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.pagination-lg .page-item:first-child .page-link {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+.pagination-lg .page-item:last-child .page-link {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+.pagination-sm .page-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.pagination-sm .page-item:first-child .page-link {
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
+.pagination-sm .page-item:last-child .page-link {
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
 }
 
 .auth-bg {
