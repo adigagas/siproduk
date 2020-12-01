@@ -5,10 +5,10 @@
     --secondaryColor: #b7b7c9;
     --secondaryColorLight: #f5f5f8;
     --accentColor: #3C415E;
-    --successColor: #9DE16F;
-    --warningColor: #F8C830;
-    --orangeColor: #FF8337;
-    --dangerColor: #FF3737;
+    --successColor: #68d81d;
+    --warningColor: #fac61b;
+    --orangeColor: #ff6200;
+    --dangerColor: #E63956;
 }
 
 body {
