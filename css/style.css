@@ -203,7 +203,13 @@ a.text-primary:focus {
 }
 
 .auth-card .auth-card-header {
-    background-color: var(--accentColor);
+    background-color: var(--primaryColor);
+    color: var(--primaryColor);
+}
+
+.auth-card .auth-card-header i {
+    font-size: 64px;
+    color: var(--secondaryColorLight);
 }
 
 .auth-card-header h1 {
