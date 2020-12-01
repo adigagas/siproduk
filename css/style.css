@@ -1,5 +1,5 @@
 :root {
-    --primaryColor: #00BFD8;
+    --primaryColor: #4b8fd5;
     --primaryColorLight: #35cee6;
     --primaryColorDark: #1da6bb;
     --secondaryColor: #b7b7c9;
@@ -46,7 +46,7 @@ body {
 }
 
 .btn.btn-outline-primary {
-    background-color: white;
+    /* background-color: white; */
     border-color: var(--primaryColor);
     color: var(--primaryColor);
 }
@@ -78,6 +78,10 @@ body {
 
 .bg-danger {
     background-color: var(--dangerColor) !important;
+}
+
+.bg-light {
+    background-color: var(--secondaryColorLight) !important;
 }
 
 a.text-primary:hover,
@@ -219,7 +223,7 @@ a.text-primary:focus {
     left: 0px;
     top: 0px;
     background-color: var(--secondaryColorLight);
-    border-right: 1px solid var(--secondaryColor);
+    border-right: 1px solid rgba(183, 183, 201, .5);
     /* box-shadow: 0px 0px 5px var(--secondaryColor); */
     transition: all .5s;
 }
@@ -288,7 +292,7 @@ a.text-primary:focus {
     margin-left: 230px;
     top: 0px;
     background-color: var(--secondaryColorLight);   
-    border-bottom: 1px solid var(--secondaryColor);
+    border-bottom: 1px solid rgba(183, 183, 201, .5);
     /* box-shadow: 0px 0px 5px var(--secondaryColor); */
     transition: all .5s;
 }
