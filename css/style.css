@@ -352,9 +352,9 @@ a.text-primary:focus {
     right: 10px;
     width: auto;
     height: auto;
-    border-radius: 0.3rem;
+    border-radius: 0.2rem;
     border: 1px solid var(--secondaryColor);
-    background-color: var(--secondaryColorLight);
+    background-color: rgba(183, 183, 183, .15);
     color: var(--primaryColor);
 }
 
@@ -368,7 +368,6 @@ a.text-primary:focus {
     width: auto;
     border-radius: .25rem;
     font-size: 2rem;
-    background-color: var(--secondaryColorLight);
 }
 
 .card-notif .notif-body {
