@@ -652,3 +652,8 @@ a.text-primary:focus {
         display: block;
     }
 }
+
+.card.card-shadow {
+    border: 0px;
+    box-shadow: 0px 5px 10px #dadada;
+}

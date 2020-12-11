@@ -34,12 +34,12 @@
             ADMIN
         </div>
         <ul class="sidebar-menu">
-            <li class="active">
+            <li class="">
                 <a href="index.html">
                     <i class="icon-16 fas fa-columns"></i> Dashboard
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="produk.html">
                     <i class="icon-16 fas fa-gift"></i> Produk
                 </a>
@@ -97,85 +97,123 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md text-primary mb-3">
-                    <h4>Dashboard</h4>
+                    <h4>Tambah Produk</h4>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><b>Informasi Produk</b></h5>
-                            <form>
+            <form action="sukses.html" method="post">
+                <div class="row">
+                    <div class="col-xl">
+                        <div class="card card-shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <b>Informasi Utama</b>
+                                </h5>
                                 <div class="form-group row">
-                                    <label for="no_sku" class="col-sm-4 col-xl-2 col-form-label">No SKU</label>
-                                    <div class="col-sm-10 col-xl-3">
-                                        <input type="email" class="form-control" id="no_sku">
+                                    <label for="no_sku" class="col-xl-3">No SKU</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="no_sku" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="nnama_produk" class="col-sm-4 col-xl-2 col-form-label">Nama Produk</label>
-                                    <div class="col-sm-10 col-xl-4">
-                                        <input type="email" class="form-control" id="nnama_produk">
+                                    <label for="nama_produk" class="col-xl-3">Nama Produk</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="nama_produk" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="merek" class="col-sm-4 col-xl-2 col-form-label">Merek</label>
-                                    <div class="col-sm-10 col-xl-4">
-                                        <input type="email" class="form-control" id="merek">
+                                    <label for="merek" class="col-xl-3">Merek</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="merek" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="kondisi" class="col-sm-4 col-xl-2 col-form-label">Kondisi</label>
-                                    <div class="col-sm-10 col-xl-4">
-                                        <input type="email" class="form-control" id="kondisi">
+                                    <label for="kategori" class="col-xl-3">Kategori</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="kategori" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-shadow mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>
+                                    Deskripsi
+                                </b></h5>
+                                <div class="form-group row">
+                                    <label for="deskripsi" class="col-xl-3">Deskripsi</label>
+                                    <div class="col-xl">
+                                        <textarea type="text" id="deskripsi" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="card card-shadow">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>
+                                    Informasi Tambahan
+                                </b></h5>
+                                <div class="form-group row">
+                                    <label for="kondisi" class="col-xl-3">Kondisi</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="kondisi" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="garansi" class="col-sm-4 col-xl-2 col-form-label">Garansi</label>
-                                    <div class="col-sm-10 col-xl-4">
-                                        <input type="email" class="form-control" id="garansi">
+                                    <label for="garansi" class="col-xl-3">Garansi</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="garansi" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="panjang" class="col-sm-4 col-xl-2 col-form-label">Panjang</label>
-                                    <div class="col-sm-10 col-xl-2">
-                                        <input type="email" class="form-control" id="panjang">
-                                    </div>
-                                    <div class="col">cm</div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="tinggi" class="col-sm-4 col-xl-2 col-form-label">Tinggi</label>
-                                    <div class="col-sm-10 col-xl-2">
-                                        <input type="email" class="form-control" id="tinggi">
-                                    </div>
-                                    <div class="col">cm</div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="berat" class="col-sm-4 col-xl-2 col-form-label">Berat</label>
-                                    <div class="col-sm-10 col-xl-2">
-                                        <input type="email" class="form-control" id="berat">
-                                    </div>
-                                    <div class="col">gr</div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="deskripsi" class="col-sm-4 col-xl-2 col-form-label">Deskripsi</label>
-                                    <div class="col-sm-10 col-xl-6">
-                                        <textarea class="form-control" name="deskripsi" id="deskripsi" cols="" rows="10"></textarea>
+                                    <label for="panjang" class="col-xl-3">Panjang</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="panjang" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm col-xl-8 text-right">
-                                        <button class="btn btn-outline-secondary">Batal</button>
-                                        <button type="submit" class="btn btn-primary">Selanjutnya</button>
+                                    <label for="tinggi" class="col-xl-3">Tinggi</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="tinggi" class="form-control">
                                     </div>
                                 </div>
-                            </form>
+                                <div class="form-group row">
+                                    <label for="berat" class="col-xl-3">Berat</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="berat" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-shadow mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>
+                                    Gambar
+                                </b></h5>
+                                <div class="form-group row">
+                                    <label for="gambar_produk" class="col-xl-3">Gambar</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="gambar_produk" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-xl">
+                        <div class="form-group row mt-3">
+                            <div class="col text-right">
+                                <a href="produk.html" class="btn btn-lg btn-outline-secondary mr-3"><i class="fas fa-arrow-left mr-3"></i>Kembali</a>
+                                <button class="btn btn-lg btn-primary" type="submit"><i class="fas fa-save mr-3"></i>Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
         
     </div>
