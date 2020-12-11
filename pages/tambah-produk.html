@@ -194,9 +194,16 @@
                                     Gambar
                                 </b></h5>
                                 <div class="form-group row">
-                                    <label for="gambar_produk" class="col-xl-3">Gambar</label>
                                     <div class="col-xl">
-                                        <input type="text" id="gambar_produk" class="form-control">
+                                        <div class="file-img">
+                                            <div class="img-preview">
+                                                <img src="https://www.ajactraining.org/wp-content/uploads/2019/09/image-placeholder.jpg" class="img-fluid" id="img_preview" alt="">
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="gambar" name="filename" onchange="preview(this)" accept="image/*">
+                                                <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -219,6 +226,31 @@
     </div>
     <!-- end Content -->
 
+    <!-- thumbnail gambar -->
+    <script>
+        function preview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img_preview')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+    <!-- custom file input label -->
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>   
+
     <!-- collapse sidebar js -->
     <script>
         function toggle(){
@@ -228,7 +260,7 @@
                 document.getElementById("toggle").value="open";
             }else{
                 open_sidebar();
-                document.getElementById("toggle").value="close";
+                document.getElementById("toggle").text="close";
             }
         }
 

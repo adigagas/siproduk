@@ -662,3 +662,19 @@ a.text-primary:focus {
     font-size: 128px;
     color: var(--primaryColor);
 }
+
+.img-preview {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #dadada;
+    border-radius: .2rem;
+    height: 100%;
+    max-height: 152px;
+    width: 83%;
+}
+
+.img-preview img {
+    width: 100%;
+    max-width: 152px;
+    height: auto;
+}
