@@ -406,9 +406,15 @@ a.text-primary:focus {
 
 .img-res {
     /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    margin: 5px;
     height: auto;
-    padding: 5px;
+    min-height: 190px;
+    max-height: 190px;
+    width: auto;
 }
 
 .filter-btn {
@@ -666,15 +672,17 @@ a.text-primary:focus {
 .img-preview {
     display: flex;
     justify-content: center;
+    align-items: center;
+    overflow: hidden;
     border: 1px solid #dadada;
     border-radius: .2rem;
-    height: 100%;
+    /* height: 100%;
     max-height: 152px;
-    width: 83%;
+    width: 83%; */
 }
 
 .img-preview img {
-    width: 100%;
+    /* width: 100%;
     max-width: 152px;
-    height: auto;
+    height: auto; */
 }
