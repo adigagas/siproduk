@@ -56,6 +56,26 @@ body {
     color: white;
 }
 
+.btn.btn-icon {
+    background-color: transparent;
+    color: var(--primaryColor);
+    font-size: 1.2rem;
+    border: 0px;
+    padding: 0px;
+}
+
+.btn.btn-icon:hover {
+    color: var(--primaryColorLight);
+}
+
+.btn.btn-icon.btn-secondary {
+    color: var(--secondaryColor);
+}
+
+.btn.btn-icon.btn-secondary:hover {
+    color: #9e9e9e;
+}
+
 .text-primary {
     color: var(--primaryColor) !important;
 }
@@ -681,8 +701,3 @@ a.text-primary:focus {
     width: 83%; */
 }
 
-.img-preview img {
-    /* width: 100%;
-    max-width: 152px;
-    height: auto; */
-}
