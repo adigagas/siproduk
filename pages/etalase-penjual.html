@@ -23,15 +23,6 @@
     <!-- my css -->
     <link rel="stylesheet" href="../css/style.css">
 
-
-    <!-- toast show -->
-    <script>
-        $(document).ready(function(){
-            $("#show-toast").click(function(){
-                $("#myToast").toast('show');
-            });
-        });
-    </script>
 </head>
 <body>
 
@@ -82,7 +73,7 @@
         </button>
         <span class="user-menu">
             Admin
-            <img src="https://png.pngtree.com/png-vector/20190418/ourlarge/pngtree-vector-book-icon-png-image_949897.jpg " alt="">
+            <img src="../img/Default/User1.jpg" alt="">
             <ul class="dropdown-content">
                 <li>
                     <a href="">
@@ -101,261 +92,163 @@
 
     <!-- Content -->
     <div class="content" id="content">
-
-        <!-- Content Fill -->
         <div class="container-fluid">
             <div class="row">
-
-                <!-- Produk -->
                 <div class="col">
-                    <div class="card mb-3">
+                    <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
-                                    <div class="showcase">  
-                                        <div class="show">
-                                            <img src="https://dynamic.brandcrowd.com/asset/logo/f126eebf-5242-4411-8b41-b5d0d90487bc/logo?v=4" alt="" class="img-fluid img-show">
-                                        </div>
+                                <div class="col-xl-2">
+                                    <img src="../img/Default/Logo Brand.jpg" alt="" class="img-fluid border">
+                                </div>
+                                <div class="col-xl">
+                                    <h5 class="">
+                                        <b>Araya Computer</b>
+                                    </h5>
+                                    Produk di toko ini : 11
+                                    <div class="mt-4 text-secondary">
+                                        <i class="fas fa-map-marker-alt"></i> Jawa Timur
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="toko-info">
-                                        <div class="toko-header">
-                                            <h4 class="toko-title">
-                                                Toko Komputer Araya Computer
-                                            </h4>
-                                            <h5 class="toko-provinsi">
-                                                Jawa Timur
-                                            </h5>
-                                            <br>
-                                            <div class="clearfix">
-                                                <button type="button" class="btn btn-primary">
-                                                Produk <span class="badge badge-light">11</span><span class="float-left"></span></button>
-                                                <span class="float-right"><a href="sunting-penjual.html"><button type="button" class="btn btn-secondary">Edit</span></button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-xl-2 text-right">
+                                    <a href="" class="btn btn-outline-secondary"><i class="fas fa-edit"></i></a>
+                                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>                   
-
-                <div class="col">
-                    <div class="row">
-                        <div class="col-xl-2 col-lg-4 col-md-12 mb-4">
-                            <div class="side-panel">
-                                <div class="card bg-light border-0 mt-4">
-                                    <div class="card-body">
-                                        <small>
-                                            <table class="table table-sm table-borderless">
-                                                <tbody>
-                                                    <tr>
-                                                        <td colspan="2">
-                                                            <h6>
-                                                                <b>Etalase Toko (4)</b>
-                                                            </h6>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="120px" ><a href="" class="text-secondary">Semua Produk</td></a>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-secondary"><a href="" class="text-secondary">Produk Terjual</td></a>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-secondary"><a href="" class="text-secondary">Peralatan Komputer</td></a>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-secondary"><a href="" class="text-secondary">Paket Gaming</td></a>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- end Filter Section -->
-
-                        <div class="col">
-                            <!-- Search -->
-                            <div class="row">
-                                <div class="col-xl-2 col-lg-4 col-md-12 mb-4">
-                                    <h5 class="mt-2">Pencarian</h5>
-                                </div>
-                                <div class="col-md">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Cari nama produk..">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" id="button-addon2">Submit</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end Search -->
-
-
-                            <!-- result info -->
-                            <div class="row my-4">
-                                <div class="col-lg">
-                                    <span class="result-note">
-                                        Menampilkan <b>16</b> dari <b>156</b> hasil
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- end result info -->
-
-                            <!-- Item Section -->
-                            <div class="row">
-                                <div class="col d-flex flex-wrap justify-content-between">
-                                    <!-- Card Item -->
-                                    
-                                    <a href="detail-produk.html" class="card card-item" id="card-item">
-                                        <div class="img-res">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtST1yLcqOyguUCVBS3RNNPdtTE5YOzXusxg&usqp=CAU" class="card-img-top" alt="...">
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                Buku Tulis
-                                            </div>
-                                            <div class="item-price">
-                                                <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="card card-item" id="card-item">
-                                        <div class="img-res">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtST1yLcqOyguUCVBS3RNNPdtTE5YOzXusxg&usqp=CAU" class="card-img-top" alt="...">
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                Buku Tulis
-                                            </div>
-                                            <div class="item-price">
-                                                <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="card card-item" id="card-item">
-                                        <div class="img-res">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtST1yLcqOyguUCVBS3RNNPdtTE5YOzXusxg&usqp=CAU" class="card-img-top" alt="...">
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                Buku Tulis
-                                            </div>
-                                            <div class="item-price">
-                                                <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="card card-item" id="card-item">
-                                        <div class="img-res">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtST1yLcqOyguUCVBS3RNNPdtTE5YOzXusxg&usqp=CAU" class="card-img-top" alt="...">
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                Buku Tulis
-                                            </div>
-                                            <div class="item-price">
-                                                <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="card card-item" id="card-item">
-                                        <div class="img-res">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtST1yLcqOyguUCVBS3RNNPdtTE5YOzXusxg&usqp=CAU" class="card-img-top" alt="...">
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                Buku Tulis
-                                            </div>
-                                            <div class="item-price">
-                                                <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="card card-item" id="card-item">
-                                        <div class="img-res">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtST1yLcqOyguUCVBS3RNNPdtTE5YOzXusxg&usqp=CAU" class="card-img-top" alt="...">
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                Buku Tulis
-                                            </div>
-                                            <div class="item-price">
-                                                <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="card card-item" id="card-item">
-                                        <div class="img-res">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtST1yLcqOyguUCVBS3RNNPdtTE5YOzXusxg&usqp=CAU" class="card-img-top" alt="...">
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                Buku Tulis
-                                            </div>
-                                            <div class="item-price">
-                                                <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a class="card card-item" id="card-item">
-                                        <div class="img-res">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtST1yLcqOyguUCVBS3RNNPdtTE5YOzXusxg&usqp=CAU" class="card-img-top" alt="...">
-
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="item-name">
-                                                Buku Tulis
-                                            </div>
-                                            <div class="item-price">
-                                                <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <!-- end Item Section -->
-                    </div>        
                 </div>
             </div>
-        </div>  
-        
-                <!-- Pagination -->
-                <div class="row">
-                    <div class="col d-flex justify-content-end">
-                        <nav aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item disabled">
-                                    <span class="page-link"><i class="fas fa-angle-double-left"></i></span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active" aria-current="page">
-                                    <span class="page-link">
-                                        2
-                                        <span class="sr-only">(current)</span>
-                                    </span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
+            <div class="row mt-5">
+                <div class="col">
+                    <!-- Search -->
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-3">
+                            <h5 class="mt-2">Pencarian</h5>
+                        </div>
+                        <div class="col-md">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Cari nama produk..">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" id="button-addon2">Submit</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- end Search -->
+
+                    <!-- result info -->
+                    <div class="row my-4">
+                        <div class="col-lg">
+                            <span class="result-note">
+                                Menampilkan <b>16</b> dari <b>156</b> hasil
+                            </span>
+                        </div>
+                    </div>
+                    <!-- end result info -->
+
+                    <!-- Item Section -->
+                    <div class="row">
+                        <div class="col d-flex flex-wrap justify-content-between">
+                            <!-- Card Item -->
+                            <a href="detail-produk.html" class="card card-item" id="card-item">
+                                <div class="img-res">
+                                    <img src="../img/Default/Buku.jpg" class="img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <div class="item-name">
+                                        Buku Tulis
+                                    </div>
+                                    <div class="item-price">
+                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="detail-produk.html" class="card card-item" id="card-item">
+                                <div class="img-res">
+                                    <img src="../img/Default/Buku.jpg" class="img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <div class="item-name">
+                                        Buku Tulis
+                                    </div>
+                                    <div class="item-price">
+                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="detail-produk.html" class="card card-item" id="card-item">
+                                <div class="img-res">
+                                    <img src="../img/Default/Buku.jpg" class="img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <div class="item-name">
+                                        Buku Tulis
+                                    </div>
+                                    <div class="item-price">
+                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="detail-produk.html" class="card card-item" id="card-item">
+                                <div class="img-res">
+                                    <img src="../img/Default/Buku.jpg" class="img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <div class="item-name">
+                                        Buku Tulis
+                                    </div>
+                                    <div class="item-price">
+                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="detail-produk.html" class="card card-item" id="card-item">
+                                <div class="img-res">
+                                    <img src="../img/Default/Buku.jpg" class="img-fluid" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <div class="item-name">
+                                        Buku Tulis
+                                    </div>
+                                    <div class="item-price">
+                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- end Card Item -->
+                        </div>
+                    </div>
+                    <!-- end Item Section -->
+
+                    <!-- Pagination -->
+                    <div class="row">
+                        <div class="col d-flex justify-content-end">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <span class="page-link"><i class="fas fa-angle-double-left"></i></span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active" aria-current="page">
+                                        <span class="page-link">
+                                            2
+                                            <span class="sr-only">(current)</span>
+                                        </span>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- end Pagination -->
                 </div>
-                <!-- end Pagination -->
-                
+            </div>
+        </div>
+    </div>
     <!-- end Content -->
 
     <!-- toggle sidebar js -->

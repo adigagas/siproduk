@@ -82,7 +82,7 @@
         </button>
         <span class="user-menu">
             Admin
-            <img src="https://png.pngtree.com/png-vector/20190418/ourlarge/pngtree-vector-book-icon-png-image_949897.jpg " alt="">
+            <img src="../img/Default/User1.jpg" alt="">
             <ul class="dropdown-content">
                 <li>
                     <a href="">
@@ -99,58 +99,90 @@
     </nav>
     <!-- end Navbar -->
 
-        <!-- Content Fill -->
+    <div class="content" id="content">
         <div class="container-fluid">
             <div class="row">
-
-                <!-- Content -->
-                <div class="container content" id="content">
-                    <div class="col-md text-primary mb-3">
-                        <h4>Penjual Baru</h4>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-7">    
-                            <div class="card card-body my-2">
-                            <h4 class="mb-3"> <a class="text-secondary"></a> Penjual Baru</h4>
-
-                            <form action="" method="post" class="text-left mt-5">
+                <div class="col-md text-primary mb-3">
+                    <h4>Tambah Penjual</h4>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-7 col-lg">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="">
+                                <h5 class="card-title">
+                                    <b>Informasi Penjual</b>
+                                </h5>
                                 <div class="form-group row">
-                                    <label for="id" class="col-sm-3 col-form-label">ID</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="nim" id="" placeholder="ID Toko">
+                                    <label for="nama_penjual" class="col-xl-4">Nama Toko/Penjual</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="nama_penjual" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="nama" class="col-sm-3 col-form-label">Nama</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="nama" id="" placeholder="Nama Toko">
+                                    <label for="provinsi" class="col-xl-4">Alamat (provinsi)</label>
+                                    <div class="col-xl">
+                                        <input type="text" id="provinsi" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
-                                    <div class="col-sm-5">
-                                        <div class="row"></div>
-                                        <textarea name="message" class="btn btn-outline-secondary" cols="50" rows="3" placeholder="Alamat Toko"></textarea>
+                                    <div class="col-xl-4">
+                                        <label for="">Gambar</label>
+                                    </div>
+                                    <div class="col-xl">
+                                        <div class="file-img">
+                                            <div class="img-preview">
+                                                <img src="../img/Default/pilih gambar.png" class="img-fluid" id="img_preview" alt="" width="40%">
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="gambar" name="filename" onchange="preview(this)" accept="image/*">
+                                                <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="provinsi" class="col-sm-3 col-form-label">Provinsi</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="provinsi" id="" placeholder="Provinsi Toko">
+                                    <div class="col text-right">
+                                        <a href="penjual.html" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                        <button class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                                     </div>
                                 </div>
-                                <br>
-                                <div class="text-right">
-                                        <a href="penjual.html" type="button" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i> Kembali</a>
-                                        <button type="button" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
-                                </div>        
-                            </div>
+                            </form>
                         </div>
                     </div>
-                </div>        
+                </div>
             </div>
-        </div>        
-                <!-- end Content -->
+        </div>
+        
+    </div>
+
+    <!-- thumbnail gambar -->
+    <script>
+        function preview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img_preview')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+    <!-- custom file input label -->
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>  
 
     <!-- toggle sidebar js -->
     <script>
