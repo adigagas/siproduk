@@ -93,54 +93,59 @@
     <div class="content" id="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md text-primary mb-3">
-                    <h4>Dashboard</h4>
+                <div class="col-xl text-primary mb-3">
+                    <h4>Sunting Ketersediaan</h4>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                <div class="col-xl-8">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                            <h5 class="card-title">
+                                <b>Form Sunting Ketersediaan</b>
+                            </h5>
+
+                            <!-- form -->
+                            <form action="ketersediaan.html" method="" class="text-left">
+                                <input type="text" id="id_ketersediaan" hidden>
+                                <div class="form-group row">
+                                    <label for="id_penjual" class="col-xl-3 col-form-label">Toko/Penjual</label>
+                                    <div class="col-xl-5">
+                                        <input type="text" class="form-control" name="id_penjual" id="" placeholder="Nama toko/penjual">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="situs" class="col-xl-3 col-form-label">Situs/Sumber</label>
+                                    <div class="col-xl-5">
+                                        <input type="text" class="form-control" name="situs" id="" placeholder="Situs">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tautan_produk" class="col-xl-3 col-form-label">Tautan Produk</label>
+                                    <div class="col-xl">
+                                        <input type="text" class="form-control" name="tautan_produk" id="" placeholder="Tautan">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="harga_satuan" class="col-xl-3 col-form-label">Harga Satuan</label>
+                                    <div class="col-xl-4">
+                                        <input type="number" class="form-control" name="harga_satuan" id="" placeholder="Harga">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="stok" class="col-xl-3 col-form-label">Stok Produk</label>
+                                    <div class="col-xl-2">
+                                        <input type="text" class="form-control" name="stok" id="" placeholder="Stok">
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                        <a href="ketersediaan.html" type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Batal </a>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan </button>
+                                </div>
+                            </form>
+                            <!-- end form -->
                         </div>
                     </div>
                 </div>
