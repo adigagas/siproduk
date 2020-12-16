@@ -113,6 +113,7 @@
                                             <th scope="col">#</th>
                                             <th scope="col">NAMA TOKO</th>
                                             <th scope="col">TAUTAN PRODUK</th>
+                                            <th scope="col">SITUS/SUMBER</th>
                                             <th scope="col">HARGA</th>
                                             <th scope="col" width="100px">STOK</th>
                                             <th width=64px></th>
@@ -121,6 +122,9 @@
                                     <tbody>
                                         <tr id="row1">
                                             <th scope="row" class="align-middle">1</th>
+                                            <td>
+                                                <input type="text" class="form-control">
+                                            </td>
                                             <td>
                                                 <input type="text" class="form-control">
                                             </td>
@@ -169,6 +173,7 @@
                 count = count + 1;
                 var html_code = "<tr id='row"+count+"'>";
                 html_code += "<th scope='row' class='align-middle'>"+count+"</th>";
+                html_code += "<td><input type='text' class='form-control'></td>";
                 html_code += "<td><input type='text' class='form-control'></td>";
                 html_code += "<td><input type='text' class='form-control'></td>";
                 html_code += "<td><input type='number' class='form-control'></td>";

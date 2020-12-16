@@ -701,3 +701,12 @@ a.text-primary:focus {
     width: 83%; */
 }
 
+.thumbnail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 64px;
+    border: 1px solid var(--primaryColorLight);
+    border-radius: 50%;
+    overflow: hidden;
+}
