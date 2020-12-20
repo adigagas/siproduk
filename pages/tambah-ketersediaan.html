@@ -22,6 +22,12 @@
 
     <!-- my css -->
     <link rel="stylesheet" href="../css/style.css">
+
+    <!-- selectpicker -->
+    <link rel="stylesheet" href="../vendor/selectpicker/css/bootstrap-select.css">
+    <script src="../vendor/selectpicker/js/bootstrap-select.js"></script>
+    <script src="../vendor/selectpicker/js/i18n/defaults-*.js"></script>
+    
 </head>
 <body>
 
@@ -31,12 +37,12 @@
             ADMIN
         </div>
         <ul class="sidebar-menu">
-            <li class="active">
+            <li class="">
                 <a href="index.html">
                     <i class="icon-16 fas fa-columns"></i> Dashboard
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="produk.html">
                     <i class="icon-16 fas fa-gift"></i> Produk
                 </a>
@@ -93,69 +99,65 @@
     <div class="content" id="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md text-primary mb-3">
-                    <h4>Tambah Ketersediaan</h4>
+                <div class="col-xl text-primary mb-3">
+                    <h4>Sunting Ketersediaan</h4>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl">
+                <div class="col-xl-8">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <b>Ketersediaan</b>
+                                <b>Form Sunting Ketersediaan</b>
                             </h5>
-                            <form action="detail-produk.html">
-                                <table class="table" id="table_crud">
-                                    <thead class="bg-primary text-light border-0">
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">NAMA TOKO</th>
-                                            <th scope="col">TAUTAN PRODUK</th>
-                                            <th scope="col">SITUS/SUMBER</th>
-                                            <th scope="col">HARGA</th>
-                                            <th scope="col" width="100px">STOK</th>
-                                            <th width=64px></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr id="row1">
-                                            <th scope="row" class="align-middle">1</th>
-                                            <td>
-                                                <input type="text" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control">
-                                            </td>
-                                            <td class="text-right">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table class="table">
-                                    <tr>
-                                        <td colspan="6" class="text-right">
-                                            <a class="btn btn-success" id="add"><i class="fas fa-plus"></i></a>
-                                        </td>
-                                    </tr>
-                                </table>
-                                <div class="row">
-                                    <div class="col text-right">
-                                        <a href="detail-produk.html" class="btn btn-outline-secondary mr-2">Batal</a>
-                                        <button class="btn btn-primary" type="submit">Simpan</button>
+
+                            <!-- form -->
+                            <form action="ketersediaan.html" method="" class="text-left">
+                                <input type="text" id="id_ketersediaan" hidden>
+                                <div class="form-group row">
+                                    <label for="id_penjual" class="col-xl-3 col-form-label">Toko/Penjual</label>
+                                    <div class="col-xl-5">
+                                        <select type="text" id="id_penjual" class="form-control selectpicker" data-live-search="true">
+                                            <option value="">--pilih kategori--</option>
+                                            <option value="1">buku tulis</option>
+                                            <option value="2">agenda</option>
+                                            <option value="3">notebook</option>
+                                            <option value="1">buku tulis</option>
+                                        </select>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="situs" class="col-xl-3 col-form-label">Situs/Sumber</label>
+                                    <div class="col-xl-5">
+                                        <input type="text" class="form-control" name="situs" id="" placeholder="Situs">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tautan_produk" class="col-xl-3 col-form-label">Tautan Produk</label>
+                                    <div class="col-xl">
+                                        <input type="text" class="form-control" name="tautan_produk" id="" placeholder="Tautan">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="harga_satuan" class="col-xl-3 col-form-label">Harga Satuan</label>
+                                    <div class="col-xl-4">
+                                        <input type="number" class="form-control" name="harga_satuan" id="" placeholder="Harga">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="stok" class="col-xl-3 col-form-label">Stok Produk</label>
+                                    <div class="col-xl-2">
+                                        <input type="text" class="form-control" name="stok" id="" placeholder="Stok">
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                        <a href="ketersediaan.html" type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Batal </a>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan </button>
+                                </div>
                             </form>
+                            <!-- end form -->
                         </div>
                     </div>
                 </div>
@@ -164,31 +166,6 @@
         
     </div>
     <!-- end Content -->
-
-    <!-- multiple add js -->
-    <script>
-        $(document).ready(function(){
-            var count = 1;
-            $('#add').click(function(){
-                count = count + 1;
-                var html_code = "<tr id='row"+count+"'>";
-                html_code += "<th scope='row' class='align-middle'>"+count+"</th>";
-                html_code += "<td><input type='text' class='form-control'></td>";
-                html_code += "<td><input type='text' class='form-control'></td>";
-                html_code += "<td><input type='text' class='form-control'></td>";
-                html_code += "<td><input type='number' class='form-control'></td>";
-                html_code += "<td><input type='number' class='form-control'></td>";
-                html_code += "<td class='text-right'><a class='btn btn-danger remove' data-row='row"+count+"'><i class='fas fa-minus'></i></a></td>";
-                html_code += "</tr>"
-                $('#table_crud').append(html_code);
-            });
-            $(document).on('click', '.remove', function(){
-                var delete_row = $(this).data("row");
-                $('#' + delete_row).remove();
-                count = count - 1;
-            })
-        });
-    </script>
 
     <!-- collapse sidebar js -->
     <script>

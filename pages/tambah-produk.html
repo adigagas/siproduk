@@ -25,6 +25,11 @@
 
     <!-- ckeditor js -->
     <script src="../vendor/ckeditor/ckeditor.js"></script>
+
+    <!-- selectpicker -->
+    <link rel="stylesheet" href="../vendor/selectpicker/css/bootstrap-select.css">
+    <script src="../vendor/selectpicker/js/bootstrap-select.js"></script>
+    <script src="../vendor/selectpicker/js/i18n/defaults-*.js"></script>
     
 </head>
 <body>
@@ -132,7 +137,13 @@
                                 <div class="form-group row">
                                     <label for="kategori" class="col-xl-3">Kategori</label>
                                     <div class="col-xl">
-                                        <input type="text" id="kategori" class="form-control">
+                                        <select type="text" id="kategori" class="form-control selectpicker" data-live-search="true">
+                                            <option value="">--pilih kategori--</option>
+                                            <option value="1">buku tulis</option>
+                                            <optin value="2">agenda</optin>
+                                            <option value="3">notebook</option>
+                                            <option value="1">buku tulis</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">

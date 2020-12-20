@@ -710,3 +710,8 @@ a.text-primary:focus {
     border-radius: 50%;
     overflow: hidden;
 }
+
+select.form-group.selectpicker {
+    border: 1px solid gray;
+    background-color: black !important;
+}
