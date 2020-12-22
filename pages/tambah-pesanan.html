@@ -22,10 +22,6 @@
 
     <!-- my css -->
     <link rel="stylesheet" href="../css/style.css">
-
-    <!-- ckeditor js -->
-    <script src="../vendor/ckeditor/ckeditor.js"></script>
-    
 </head>
 <body>
 
@@ -98,96 +94,104 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md text-primary mb-3">
-                    <h4>Tambah Transaksi</h4>
+                    <h4>Tambah Pesanan</h4>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            <form action="sukses-transaksi.html" method="">
-                <div class="row">
-                    <div class="col-xl">
-                        <div class="card card-shadow">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <b>Informasi Transaksi</b>
-                                </h5>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Form Pesanan Baru</b></h5>
+                            
+                            <form action="">
                                 <div class="form-group row">
-                                    <label for="id_transaksi" class="col-xl-3">ID Transaksi</label>
-                                    <div class="col-xl">
-                                        <input type="text" id="id_transaksi" class="form-control">
-                                    </div>
+                                    <label for="nama_toko" class="col-xl-2 col-form-label">Nama Toko</label>
+                                    <input type="text" name="nama_toko" id="nama_toko" class="col-xl-4 form-control">
                                 </div>
                                 <div class="form-group row">
-                                    <label for="tgl_transaksi" class="col-xl-3">Tgl Transaksi</label>
-                                    <div class="col-xl">
-                                        <input type="date" id="tgl_transaksi" class="form-control">
-                                    </div>
+                                    <label for="no_resi" class="col-xl-2 col-form-label">No. Resi</label>
+                                    <input type="text" name="no_resi" id="no_resi" class="col-xl-4 form-control">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card card-shadow mt-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>
-                                    Informasi Penerima
-                                </b></h5>
-                                <div class="form-group row">
-                                    <label for="nama_penerima" class="col-xl-3">Nama Penerima</label>
-                                    <div class="col-xl">
-                                        <input type="text" id="nama_produk" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="alamat_penerima" class="col-xl-3">Alamat Penerima</label>
-                                    <div class="col-xl">
-                                        <input type="text" id="alamat_penerima" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="provinsi" class="col-xl-3">Provinsi</label>
-                                    <div class="col-xl">
-                                        <input type="text" id="provinsi" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="kabupaten_kota" class="col-xl-3">Kabupaten/Kota</label>
-                                    <div class="col-xl">
-                                        <input type="text" id="kabupaten_kota" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="kodepos" class="col-xl-3">Kodepos</label>
-                                    <div class="col-xl">
-                                        <input type="text" id="kodepos" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl">
-                        <div class="form-group row mt-3">
-                            <div class="col text-right">
-                                <a href="transaksi.html" class="btn btn-lg btn-outline-secondary mr-3"><i class="fas fa-arrow-left mr-3"></i>Kembali</a>
-                                <button class="btn btn-lg btn-primary" type="submit"><i class="fas fa-save mr-3"></i>Simpan</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+                                <table class="table mt-5" id="crud_table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th width="35%">Nama Produk</th>
+                                            <th width="10%">Banyak</th>
+                                            <th>Harga Satuan</th>
+                                            <th>Jumlah</th>
+                                            <th width="5%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class='align-middle'>
+                                                <i class='fas fa-receipt'></i>
+                                            </td>
+                                            <td>
+                                                <input type='text' name='nama_item' id='nama_item' class='form-control'>
+                                            </td>
+                                            <td>
+                                                <input type='number' name='jumlah_beli' id='jumlah_beli' class='form-control'>
+                                            </td>
+                                            <td>
+                                                <input type='number' name='harga_satuan' id='harga_satuan' class='form-control'>
+                                            </td>
+                                            <td>
+                                                <input type='text' name='total_harga' id='total_harga' class='form-control' disabled>
+                                            </td>
+                                            <td class='text-right'>
+                                                
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table">
+                                    <tr>
+                                        <td class="text-right">
+                                            <button type="button" name="add" id="add" class="btn btn-success"><i class="fas fa-plus"></i></button>
+                                        </td>
+                                    </tr>
+                                </table>
 
+                                <div class="d-flex justify-content-end">
+                                    <a href="detail-transaksi.html" class="btn btn-outline-secondary mr-3"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                    <button type="submit" name="submit" id="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
     <!-- end Content -->
 
-    <!-- custom file input label -->
+    <!-- multiple add table js -->
     <script>
-        // Add the following code if you want the name of the file appear on select
-        $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        $(document).ready(function(){
+            var count = 1;
+            $('#add').click(function(){
+                count = count + 1;
+                var html_code = "<tr id='row"+count+"'>";
+                    html_code += "<td class='align-middle'><i class='fas fa-receipt'></i></td>";
+                    html_code += "<td><input type='text' name='nama_item' id='nama_item' class='form-control'></td>";
+                    html_code += "<td><input type='number' name='jumlah_beli' id='jumlah_beli' class='form-control'></td>";
+                    html_code += "<td><input type='number' name='harga_satuan' id='harga_satuan' class='form-control'></td>";
+                    html_code += "<td><input type='text' name='total_harga' id='total_harga' class='form-control' disabled></td>";
+                    html_code += "<td class='text-right'><a name='remove' data-row='row"+count+"' class='btn btn-danger remove'><i class='fas fa-minus'></i></a></td></td>";
+                html_code += "</tr>";
+                $('#crud_table').append(html_code);
+            });
+            $(document).on('click', '.remove', function(){
+                var delete_row =  $(this).data("row");
+                $('#' + delete_row).remove();
+            });
         });
-    </script>   
+    </script>
 
     <!-- collapse sidebar js -->
     <script>
@@ -198,7 +202,7 @@
                 document.getElementById("toggle").value="open";
             }else{
                 open_sidebar();
-                document.getElementById("toggle").text="close";
+                document.getElementById("toggle").value="close";
             }
         }
 
