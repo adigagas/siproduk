@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <!-- bootstrap jquery & js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.js"></script>
+
+    <!-- my font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+
+    <!-- fontawesome icons -->
+    <link href="../vendor/fontawesome/css/all.css" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Certak Kuitansi -->
+    <div class="container-fluid ">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col text-center">
+                                <div class="title-np">
+                                    <h5>
+                                        <b>KUITANSIBUKTI PEMBAYARAN</b>
+                                    </h5>
+                                    <h6><b>CV. ARAYA MEDIA IT</b></h6>
+                                    <h6>
+                                        <small>
+                                            Jalan Bantaran Indah Blok E21B Malang, Jawa Timur
+                                        </small>
+                                    </h6>
+                                    <h6>
+                                        <small>
+                                            www.arayamedia.id | 0812xxxxxxxx |info@arayamedia.id
+                                        </small>
+                                    </h6>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <th>SUDAH TERIMA DARI</th>
+                                        <td>:</td>
+                                        <td>Monika Kusuma Dewi</td>
+                                    </tr>
+                                    <tr>
+                                        <th>JUMLAH UANG</th>
+                                        <td>:</td>
+                                        <td>Rp. 4.540.000</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="align-top">TERBILANG</th>
+                                        <td class="align-top">:</td>
+                                        <td>
+                                            <textarea name="" id="" cols="50" rows="2" class="form-control" placeholder="ex : Satu Juta Rupiah"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="align-top">PEMBAYARAN</th>
+                                        <td class="align-top">:</td>
+                                        <td>
+                                            <textarea name="" id="" cols="50" rows="4" class="form-control" placeholder="ex : Pembelanjaan alat perlengkapan sekolah"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="col-xl-4">
+                                Malang, 20 Novembar 2020
+                                CV. Araya Media IT
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                Hendra
+                                <hr class="divider">
+                                Direktur Utama
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> Cetak</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Cetak Kuitansi -->
+
+    <!-- collapse sidebar js -->
+    <script>
+        function toggle(){
+            currentvalue = document.getElementById('toggle').value;
+            if(currentvalue == "close"){
+                close_sidebar();
+                document.getElementById("toggle").value="open";
+            }else{
+                open_sidebar();
+                document.getElementById("toggle").value="close";
+            }
+        }
+
+        function close_sidebar() {
+            document.getElementById("content").style.marginLeft = "0px";
+            document.getElementById("content").style.width = "100%";
+            document.getElementById("navbar").style.marginLeft = "0px";
+            document.getElementById("navbar").style.width = "100%";
+            document.getElementById("sidebar").style.position = "stiky";
+            document.getElementById("sidebar").style.marginLeft = "-230px";
+            // document.getElementById("close-sidebar").style.display = "none";
+            // document.getElementById("open-sidebar").style.display = "block";
+        }
+        function open_sidebar() {
+            document.getElementById("content").style.marginLeft = "230px";
+            document.getElementById("content").style.width = "calc(100% - 230px)";
+            document.getElementById("navbar").style.marginLeft = "230px";
+            document.getElementById("navbar").style.width = "calc(100% - 230px)";
+            document.getElementById("sidebar").style.position = "fixed";
+            document.getElementById("sidebar").style.marginLeft = "0px";
+            // document.getElementById("close-sidebar").style.display = "block";
+            // document.getElementById("open-sidebar").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

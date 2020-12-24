@@ -715,3 +715,19 @@ select.form-group.selectpicker {
     border: 1px solid gray;
     background-color: black !important;
 }
+
+.title-np h5 {
+    padding: 0px;
+    margin: 0;
+}
+
+.title-np h6 {
+    padding: 0px;
+    margin: 0;
+}
+
+hr.divider {
+    margin: 0;
+    color: black;
+    background-color: black;
+}
