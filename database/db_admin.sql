@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Des 2020 pada 12.27
--- Versi server: 10.1.32-MariaDB
--- Versi PHP: 7.2.5
+-- Generation Time: Dec 27, 2020 at 01:08 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,22 +25,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_transaksi`
+-- Table structure for table `tb_detail_transaksi`
 --
 
 CREATE TABLE `tb_detail_transaksi` (
-  `id_detail_transaksi` int(11) NOT NULL,
+  `id_detail_transaksi` varchar(22) NOT NULL,
   `nama_item` varchar(128) NOT NULL,
   `harga_satuan` int(11) NOT NULL,
   `jumlah_beli` int(11) NOT NULL,
   `total_harga` int(11) NOT NULL,
-  `id_sub_transaksi` int(11) NOT NULL
+  `id_sub_transaksi` varchar(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_dokumen`
+-- Table structure for table `tb_dokumen`
 --
 
 CREATE TABLE `tb_dokumen` (
@@ -51,13 +51,13 @@ CREATE TABLE `tb_dokumen` (
   `surat_tagihan` text NOT NULL,
   `faktur_pajak` text NOT NULL,
   `bukti_pembayaran` text NOT NULL,
-  `id_transaksi` int(11) NOT NULL
+  `id_transaksi` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kategori`
+-- Table structure for table `tb_kategori`
 --
 
 CREATE TABLE `tb_kategori` (
@@ -68,7 +68,7 @@ CREATE TABLE `tb_kategori` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_ketersediaan`
+-- Table structure for table `tb_ketersediaan`
 --
 
 CREATE TABLE `tb_ketersediaan` (
@@ -85,7 +85,7 @@ CREATE TABLE `tb_ketersediaan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_penjual`
+-- Table structure for table `tb_penjual`
 --
 
 CREATE TABLE `tb_penjual` (
@@ -98,7 +98,7 @@ CREATE TABLE `tb_penjual` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_produk`
+-- Table structure for table `tb_produk`
 --
 
 CREATE TABLE `tb_produk` (
@@ -120,25 +120,25 @@ CREATE TABLE `tb_produk` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_sub_transaksi`
+-- Table structure for table `tb_sub_transaksi`
 --
 
 CREATE TABLE `tb_sub_transaksi` (
-  `id_sub_transaksi` int(11) NOT NULL,
+  `id_sub_transaksi` varchar(18) NOT NULL,
   `nama_toko` varchar(128) NOT NULL,
   `no_resi` varchar(64) NOT NULL,
   `sub_total` int(11) NOT NULL,
-  `id_transaksi` int(11) NOT NULL
+  `id_transaksi` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_transaksi`
+-- Table structure for table `tb_transaksi`
 --
 
 CREATE TABLE `tb_transaksi` (
-  `id_transaksi` int(11) NOT NULL,
+  `id_transaksi` varchar(14) NOT NULL,
   `tanggal` date NOT NULL,
   `nama_penerima` varchar(128) NOT NULL,
   `provinsi` varchar(32) NOT NULL,
@@ -146,12 +146,12 @@ CREATE TABLE `tb_transaksi` (
   `kode_pos` int(11) NOT NULL,
   `alamat_penerima` text NOT NULL,
   `grand_total` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_user`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -167,27 +167,27 @@ CREATE TABLE `tb_user` (
 --
 
 --
--- Indeks untuk tabel `tb_detail_transaksi`
+-- Indexes for table `tb_detail_transaksi`
 --
 ALTER TABLE `tb_detail_transaksi`
   ADD PRIMARY KEY (`id_detail_transaksi`),
   ADD KEY `id_sub_transaksi` (`id_sub_transaksi`);
 
 --
--- Indeks untuk tabel `tb_dokumen`
+-- Indexes for table `tb_dokumen`
 --
 ALTER TABLE `tb_dokumen`
   ADD PRIMARY KEY (`id_dokumen`),
   ADD KEY `id_transaksi` (`id_transaksi`);
 
 --
--- Indeks untuk tabel `tb_kategori`
+-- Indexes for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indeks untuk tabel `tb_ketersediaan`
+-- Indexes for table `tb_ketersediaan`
 --
 ALTER TABLE `tb_ketersediaan`
   ADD PRIMARY KEY (`id_ketersediaan`),
@@ -195,129 +195,99 @@ ALTER TABLE `tb_ketersediaan`
   ADD KEY `id_penjual` (`id_penjual`);
 
 --
--- Indeks untuk tabel `tb_penjual`
+-- Indexes for table `tb_penjual`
 --
 ALTER TABLE `tb_penjual`
   ADD PRIMARY KEY (`id_penjual`);
 
 --
--- Indeks untuk tabel `tb_produk`
+-- Indexes for table `tb_produk`
 --
 ALTER TABLE `tb_produk`
   ADD PRIMARY KEY (`id_produk`),
   ADD KEY `id_kategori` (`id_kategori`);
 
 --
--- Indeks untuk tabel `tb_sub_transaksi`
+-- Indexes for table `tb_sub_transaksi`
 --
 ALTER TABLE `tb_sub_transaksi`
   ADD PRIMARY KEY (`id_sub_transaksi`),
   ADD KEY `id_transaksi` (`id_transaksi`);
 
 --
--- Indeks untuk tabel `tb_transaksi`
+-- Indexes for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indeks untuk tabel `tb_user`
+-- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tb_detail_transaksi`
---
-ALTER TABLE `tb_detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `tb_dokumen`
+-- AUTO_INCREMENT for table `tb_dokumen`
 --
 ALTER TABLE `tb_dokumen`
   MODIFY `id_dokumen` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_kategori`
+-- AUTO_INCREMENT for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_ketersediaan`
+-- AUTO_INCREMENT for table `tb_ketersediaan`
 --
 ALTER TABLE `tb_ketersediaan`
   MODIFY `id_ketersediaan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_penjual`
+-- AUTO_INCREMENT for table `tb_penjual`
 --
 ALTER TABLE `tb_penjual`
   MODIFY `id_penjual` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_produk`
+-- AUTO_INCREMENT for table `tb_produk`
 --
 ALTER TABLE `tb_produk`
   MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_sub_transaksi`
---
-ALTER TABLE `tb_sub_transaksi`
-  MODIFY `id_sub_transaksi` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `tb_transaksi`
---
-ALTER TABLE `tb_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `tb_user`
+-- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_detail_transaksi`
+-- Constraints for table `tb_detail_transaksi`
 --
 ALTER TABLE `tb_detail_transaksi`
   ADD CONSTRAINT `tb_detail_transaksi_ibfk_1` FOREIGN KEY (`id_sub_transaksi`) REFERENCES `tb_sub_transaksi` (`id_sub_transaksi`);
 
 --
--- Ketidakleluasaan untuk tabel `tb_dokumen`
---
-ALTER TABLE `tb_dokumen`
-  ADD CONSTRAINT `tb_dokumen_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `tb_transaksi` (`id_transaksi`);
-
---
--- Ketidakleluasaan untuk tabel `tb_ketersediaan`
+-- Constraints for table `tb_ketersediaan`
 --
 ALTER TABLE `tb_ketersediaan`
   ADD CONSTRAINT `tb_ketersediaan_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `tb_produk` (`id_produk`),
   ADD CONSTRAINT `tb_ketersediaan_ibfk_2` FOREIGN KEY (`id_penjual`) REFERENCES `tb_penjual` (`id_penjual`);
 
 --
--- Ketidakleluasaan untuk tabel `tb_produk`
+-- Constraints for table `tb_produk`
 --
 ALTER TABLE `tb_produk`
   ADD CONSTRAINT `tb_produk_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `tb_kategori` (`id_kategori`);
-
---
--- Ketidakleluasaan untuk tabel `tb_sub_transaksi`
---
-ALTER TABLE `tb_sub_transaksi`
-  ADD CONSTRAINT `tb_sub_transaksi_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `tb_transaksi` (`id_transaksi`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
