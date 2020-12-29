@@ -11,6 +11,64 @@
     <!-- Navbar -->
     <?php $this->load->view("template/navbar.php") ?>
     <!-- end Navbar -->
+    
+    <!-- Alert -->
+    <?= $this->session->flashdata('message'); ?>
+
+    <!-- Modal Tambah -->
+    <div class="modal fade" id="tambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="<?= base_url('kategori') ?>" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nama_kategori">Nama Kategori</label>
+                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori" placeholder="Nama Kategori">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <input type="submit" name="tambah" id="tambah" value="Tambah" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end Modal Tambah -->
+
+    <!-- Modal Sunting -->
+    <div class="modal fade" id="sunting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="<?= base_url('kategori') ?>" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Sunting Kategori</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="id_kategori" id="sunting_kategori">
+                            <label for="nama_kategori">Nama Kategori</label>
+                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori" placeholder="Nama Kategori">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <input type="submit" name="sunting" id="sunting" value="Sunting" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end Modal Sunting -->
 
     <!-- Modal Hapus -->
     <div class="modal fade" id="hapus" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -23,8 +81,11 @@
                     <p>Apakah anda yakin ingin menghapus?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                    <button type="button" class="btn btn-danger"  data-dismiss="modal">Ya, hapus</button>
+                    <form action="<?= base_url('kategori') ?>" method="post">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                        <input type="hidden" class="form-control" name="id_kategori" id="hapus_kategori" placeholder="Nama Kategori">
+                        <input type="submit" name="hapus" id="hapus" value="Hapus" class="btn btn-danger">
+                    </form>
                 </div>
             </div>
         </div>
@@ -46,32 +107,34 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <!-- Search -->
-                            <div class="row">
-                                <div class="col-xl-2 col-lg-3">
-                                    <h5 class="mt-2">Pencarian</h5>
-                                </div>
-                                <div class="col-md">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Cari kategori..">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" id="button-addon2">Submit</button>
+                            <form action="<?= base_url('kategori') ?>" method="post">
+                                <div class="row">
+                                    <div class="col-xl-2 col-lg-3">
+                                        <h5 class="mt-2">Pencarian</h5>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" value="<?= $keyword ?>" id="keyword" name="keyword" placeholder="Cari kategori..">
+                                            <div class="input-group-append">
+                                                <input class="btn btn-primary" type="submit" name="cari" id="cari" value="cari">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                             <!-- end Search -->
 
                             <!-- result info -->
                             <div class="row my-4">
                                 <div class="col-lg">
                                     <span class="result-note">
-                                        Menampilkan <b>10</b> dari <b>57</b> hasil
+                                        Menampilkan <b><?php if($total_rows<$per_page) {echo $total_rows; } else { echo $per_page; } ?></b> dari <b><?= $total_rows ?></b> hasil
                                     </span>
                                 </div>
                                 <div class="col-xl-3 col-lg-6 text-right">
-                                    <a href="<?= base_url('kategori/tambah') ?>" class="btn btn-outline-primary">
+                                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#tambah">
                                         <i class="fas fa-plus"></i> Kategori Baru
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <!-- end result info -->
@@ -80,148 +143,36 @@
                             <table class="table">
                                 <thead class="bg-primary text-light">
                                     <tr class="text-center">
-                                        <th scope="col">NO</th>
+                                        <th scope="col" width="5%">NO</th>
                                         <th scope="col">NAMA KATEGORI</th>
                                         <th scope="col">ID</th>
-                                        <th scope="col">AKSI</th>
+                                        <th scope="col" width="150px">AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">1</th>
-                                        <td class="align-middle">Buku Tulis</td>
-                                        <td class="align-middle text-center">
-                                            001
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger fas fa-trash-alt" data-toggle="modal" data-target="#hapus" ></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">2</th>
-                                        <td class="align-middle">Agenda</td>
-                                        <td class="align-middle text-center">
-                                            002
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">3</th>
-                                        <td class="align-middle">Buku Nota & Kwitansi</td>
-                                        <td class="align-middle text-center">
-                                            003
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">4</th>
-                                        <td class="align-middle">Buku Telp</td>
-                                        <td class="align-middle text-center">
-                                            004
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">5</th>
-                                        <td class="align-middle">Buku Kas</td>
-                                        <td class="align-middle text-center">
-                                            005
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">6</th>
-                                        <td class="align-middle">Block Note</td>
-                                        <td class="align-middle text-center">
-                                            006
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">7</th>
-                                        <td class="align-middle">Hard Cover</td>
-                                        <td class="align-middle text-center">
-                                            007
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">8</th>
-                                        <td class="align-middle">Box File</td>
-                                        <td class="align-middle text-center">
-                                            008
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">9</th>
-                                        <td class="align-middle">Clear Sleaves and Pocket</td>
-                                        <td class="align-middle text-center">
-                                            009
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="align-middle text-center">10</th>
-                                        <td class="align-middle">Continuos Form</td>
-                                        <td class="align-middle text-center">
-                                            010
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a href="<?= base_url('kategori/sunting') ?>" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                                            <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($kategori as $k) : ?>
+                                        <tr>
+                                            <th scope="row" class="align-middle text-center"><?= ++$start ?></th>
+                                            <td class="align-middle"><?= $k->nama_kategori ?></td>
+                                            <td class="align-middle text-center">
+                                                <?= $k->id_kategori ?>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <button class="btn btn-secondary" data-toggle="modal" data-target="#sunting" data-whatever="<?= $k->id_kategori ?>" data-nama="<?= $k->nama_kategori ?>"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#hapus" data-whatever="<?= $k->id_kategori ?>"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                             <!-- end Table -->
 
+                        
+
                         <!-- Pagination -->
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <nav aria-label="...">
-                                    <ul class="pagination">
-                                        <li class="page-item disabled">
-                                            <span class="page-link">Previous</span>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item active" aria-current="page">
-                                            <span class="page-link">
-                                                2
-                                                <span class="sr-only">(current)</span>
-                                            </span>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                <?= $this->pagination->create_links(); ?>
                             </div>
                         </div>
                         <!-- end Pagination -->
@@ -234,6 +185,31 @@
 
     <!-- Script -->
     <?php $this->load->view("template/js.php") ?>
+
+    <!-- js hapus -->
+    <script>
+        $('#sunting').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var data_sunting = button.data('whatever') // Extract info from data-* attributes
+            var data_nama = button.data('nama') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('Sunting kategori ' + data_sunting)
+            modal.find('.modal-body .form-group input#sunting_kategori').val(data_sunting)
+            modal.find('.modal-body .form-group input#nama_kategori').val(data_nama)
+        })
+
+        $('#hapus').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var data_hapus = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('Hapus kategori ' + data_hapus)
+            modal.find('.modal-footer form input#hapus_kategori').val(data_hapus)
+        })
+    </script>
 
 </body>
 </html>
