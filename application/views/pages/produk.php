@@ -15,7 +15,7 @@
     <!-- alert -->
     <div class="card-notif notif-success" id="notif">
         <div class="notif-icon">
-            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-folder-plus"></i>
         </div>
         <div class="notif-body">
             <div class="notif-title">
@@ -191,17 +191,22 @@
                                     <li class="page-item disabled">
                                         <span class="page-link"><i class="fas fa-angle-double-left"></i></span>
                                     </li>
+
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
+
                                     <li class="page-item active" aria-current="page">
                                         <span class="page-link">
                                             2
                                             <span class="sr-only">(current)</span>
                                         </span>
                                     </li>
+
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
+
                                     <li class="page-item">
                                         <a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a>
                                     </li>
+                                    
                                 </ul>
                             </nav>
                         </div>
