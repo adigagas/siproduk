@@ -167,15 +167,14 @@
                             </table>
                             <!-- end Table -->
 
-                        
-
-                        <!-- Pagination -->
-                        <div class="row">
-                            <div class="col d-flex justify-content-end">
-                                <?= $this->pagination->create_links(); ?>
+                            <!-- Pagination -->
+                            <div class="row">
+                                <div class="col d-flex justify-content-end">
+                                    <?= $this->pagination->create_links(); ?>
+                                </div>
                             </div>
+                            <!-- end Pagination -->
                         </div>
-                        <!-- end Pagination -->
                     </div>
                 </div>
             </div>
