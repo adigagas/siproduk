@@ -388,6 +388,12 @@ a.text-primary:focus {
 	width: auto;
 	border-radius: .25rem;
 	font-size: 2rem;
+	padding: 8px;
+	background-color: var(--primaryColor);
+}
+
+.card-notif .notif-icon i {
+	color: white;
 }
 
 .card-notif .notif-body {
@@ -416,12 +422,24 @@ a.text-primary:focus {
 	color: var(--successColor);
 }
 
+.card-notif.notif-success .notif-icon {
+	background-color: var(--successColor);
+}
+
 .card-notif.notif-warning {
 	color: var(--warningColor);
 }
 
+.card-notif.notif-warning .notif-icon {
+	background-color: var(--warningColor);
+}
+
 .card-notif.notif-danger {
 	color: var(--dangerColor);
+}
+
+.card-notif.notif-danger .notif-icon {
+	background-color: var(--dangerColor);
 }
 
 .img-res {
