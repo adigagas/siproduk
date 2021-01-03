@@ -22,12 +22,50 @@ class Produk extends CI_Controller {
 	public function __construct()
     {
 		parent::__construct();
-        // $this->load->library('form_validation');
+		$this->load->library('form_validation');
+
+		$this->load->helper('url');
+        $this->load->helper('array');
+
+		$this->load->library('pagination');
+        $this->load->helper(array('form', 'url'));
+		
+		$this->load->model('M_Produk');
+		$this->load->model('M_Kategori');
+
 	}
 
 	public function index()
 	{
-		$this->load->view('pages/produk');
+		// Kategori
+		$data['kategori'] = $this->M_Kategori->getAllKategori();
+
+		// ambil keyword
+		if ($this->input->post('cari')) {
+			$data['keyword'] = $this->input->post('keyword');
+			$this->session->set_userdata('keyword', $data['keyword']);
+		} else {
+			$data['keyword'] = $this->session->userdata('keyword');
+		}
+
+		$this->db->like('nama_produk', $data['keyword']);
+		$this->db->from('tb_produk');
+
+		// config
+		$config['base_url'] = 'http://localhost/siproduk/kategori/index';
+		$config['total_rows'] = $this->db->count_all_results();
+		$config['per_page'] = 10;
+		$data['total_rows'] = $config['total_rows'];
+		$data['per_page'] = $config['per_page'];
+
+		// initialize
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+
+		$data['produk'] = $this->M_Produk->getProduk($config['per_page'], $data['start'], $data['keyword']);
+		$this->load->view('pages/produk',$data);
+	
 	}
 
 	public function detail()

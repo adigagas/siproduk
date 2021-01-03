@@ -80,14 +80,4 @@ class Kategori extends CI_Controller {
 		$this->load->view('pages/kategori',$data);
 	}
 
-	public function tambah()
-	{
-		$this->load->view('pages/tambah_kategori');
-	}
-
-	public function sunting()
-	{
-		$this->load->view('pages/sunting_kategori');
-	}
-
 }
