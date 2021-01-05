@@ -48,11 +48,17 @@ class M_Produk extends CI_Model
     }
 
     // Mengambil produk sesuai Keyword
-    public function getProduk($limit, $start, $keyword = null)
+    public function getProduk($limit, $start, $keyword = null, $f_kategori = null)
     {
-        if ($keyword) {
+        if ($keyword && $f_kategori) {
             $this->db->like('nama_produk', $keyword);  
-        } 
+            $this->db->like('id_kategori', $f_kategori);
+        } elseif ($keyword) {
+            $this->db->like('nama_produk', $keyword);  
+        } elseif ($f_kategori) {
+            $this->db->like('id_kategori', $f_kategori);
+        }
+
         return $this->db->get($this->_tProduk, $limit, $start)->result();
     }
 
@@ -67,6 +73,16 @@ class M_Produk extends CI_Model
     {
         $post = $this->input->post();
         $this->nama_produk = $post['nama_produk'];
+        $this->no_sku = $post['no_sku'];
+        $this->merek = $post['merek'];
+        $this->kondisi = $post['kondisi'];
+        $this->garansi = $post['garansi'];
+        $this->panjang = $post['panjang'];
+        $this->lebar = $post['lebar'];
+        $this->tinggi = $post['tinggi'];
+        $this->berat = $post['berat'];
+        $this->deskripsi = $post['deskripsi'];
+
         $this->db->insert($this->_tProduk, $this);
         $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-plus"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menambah data produk</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
     }
@@ -90,7 +106,13 @@ class M_Produk extends CI_Model
 
     public function getProdukById($id_produk)
     {
-        return $this->db->get_where($this->_tProduk, ["id_produk" => $id_produk])->row();
+        $this->db->from('tb_produk');
+        $this->db->join('tb_kategori', 'tb_kategori.id_kategori = tb_produk.id_kategori', 'left');
+        $this->db->where('id_produk', $id_produk);
+
+        return $this->db->get()->row();
+        // return $this->db->get_where($this->db, ['id_produk' => $id_produk])->row();
+        // return $this->db->get_where($this->_tProduk, ["id_produk" => $id_produk])->row();
     }
 
 

@@ -32,6 +32,7 @@ class Produk extends CI_Controller {
 		
 		$this->load->model('M_Produk');
 		$this->load->model('M_Kategori');
+		$this->load->model('M_Ketersediaan');
 
 	}
 
@@ -43,12 +44,16 @@ class Produk extends CI_Controller {
 		// ambil keyword
 		if ($this->input->post('cari')) {
 			$data['keyword'] = $this->input->post('keyword');
+			$data['f_kategori'] = $this->input->post('f_kategori');
 			$this->session->set_userdata('keyword', $data['keyword']);
+			$this->session->set_userdata('f_kategori', $data['f_kategori']);
 		} else {
 			$data['keyword'] = $this->session->userdata('keyword');
+			$data['f_kategori'] = $this->session->userdata('f_kategori');
 		}
 
 		$this->db->like('nama_produk', $data['keyword']);
+		$this->db->like('id_produk', $data['f_kategori']);
 		$this->db->from('tb_produk');
 
 		// config
@@ -63,14 +68,24 @@ class Produk extends CI_Controller {
 
 		$data['start'] = $this->uri->segment(3);
 
-		$data['produk'] = $this->M_Produk->getProduk($config['per_page'], $data['start'], $data['keyword']);
+		$data['produk'] = $this->M_Produk->getProduk($config['per_page'], $data['start'], $data['keyword'], $data['f_kategori']);
 		$this->load->view('pages/produk',$data);
 	
 	}
 
-	public function detail()
+	public function detail($id_produk = null)
 	{
-		$this->load->view('pages/detail_produk');
+		if(is_null($id_produk)){
+			redirect(base_url('produk'));
+		} else {
+			// ambil data penjual dan ketersediaan
+			$data['ketersediaan'] = $this->M_Ketersediaan->getKetersediaanByProdukId($id_produk);
+
+			// ambil data produk sesuai id_produk
+			$data['produk'] = $this->M_Produk->getProdukById($id_produk);
+			// echo '<pre>',print_r($data),'</pre>';
+			$this->load->view('pages/detail_produk', $data);
+		}
 	}
 
 	public function tambah()
