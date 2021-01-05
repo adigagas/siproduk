@@ -27,7 +27,6 @@
         <!-- Content Fill -->
         <div class="container-fluid">
             <div class="row">
-
                 <!-- Produk -->
                 <div class="col">
                     <div class="card mb-3">
@@ -36,7 +35,11 @@
                                 <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12">
                                     <div class="showcase">  
                                         <div class="show">
-                                            <img src="../img/Default/Buku.jpg" alt="" class="img-fluid img-show">
+                                            <?php if(is_null($produk->gambar)) : ?>
+                                                <img src="<?= base_url('img/Default/Buku.jpg') ?>" alt="" class="img-fluid img-show">
+                                                <?php else : ?>
+                                                    <img src="<?= base_url('img/produk/'.$produk->gambar ) ?>" alt="" class="img-fluid img-show">
+                                            <?php endif ?>
                                         </div>
                                     </div>
                                 </div>
@@ -44,10 +47,10 @@
                                     <div class="produk-info">
                                         <div class="produk-header">
                                             <h4 class="produk-title">
-                                                Buku Tulis
+                                                <?= $produk->nama_produk ?>
                                             </h4>
                                             <div class="produk-sub-title">
-                                                Merek/Penerbit <b>KIKO</b>
+                                                Merek/Penerbit <b><?= $produk->merek ?></b>
                                             </div>
                                         </div>
                                         <div class="produk-body">
@@ -60,7 +63,7 @@
                                             </small>
                                         </div>
                                         <div class="produk-footer">
-                                            <a href="<?= base_url('produk/sunting') ?>" class="btn btn-secondary">
+                                            <a href="<?= base_url('produk/sunting'.$produk->id_produk) ?>" class="btn btn-secondary">
                                                 <i class="fas fa-edit"></i> Sunting
                                             </a>
                                             <a href="" class="btn btn-danger">
@@ -82,48 +85,48 @@
                                 <table class="desc-table">
                                     <tr>
                                         <td class="desc-title">No SKU</td>
-                                        <td>:</td>
-                                        <td>2398701234987</td>
+                                        <td width>:</td>
+                                        <td><?= $produk->no_sku ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Kategori</td>
                                         <td>:</td>
-                                        <td>Buku Tulis</td>
+                                        <td><?= $produk->nama_kategori ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Merek/Penerbit</td>
                                         <td>:</td>
-                                        <td>KIKO</td>
+                                        <td><?= $produk->merek ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Kondisi</td>
                                         <td>:</td>
-                                        <td>Baru</td>
+                                        <td><?= $produk->kondisi ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Garansi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td><?= $produk->garansi ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Panjang</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td><?= $produk->panjang ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Lebar</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td><?= $produk->lebar ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Tinggi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td><?= $produk->tinggi ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Berat</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td><?= $produk->berat ?></td>
                                     </tr>
                                 </table>
                             </div>
@@ -133,14 +136,7 @@
                                     Deskripsi
                                 </h5>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend ligula nullam gravida enim sed dignissim. Arcu nullam mattis lacus nunc, vitae sed ipsum. Egestas laoreet quam nullam porttitor. Dignissim rhoncus purus tristique aliquet arcu consequat.
-                                    <br>
-                                    <br>
-                                    Interface : SATA III
-                                    <br>
-                                    Read : 500MBps
-                                    <br>
-                                    Write : 250MBps
+                                    <?= $produk->deskripsi ?>
                                 </p>
                             </div>
                         </div>
@@ -165,73 +161,37 @@
                             </h5>
 
                             <ul class="store-list">
+
+                                <?php foreach($ketersediaan as $kt) : ?>
                                 <li>
                                     <div class="store-header">
-                                        <img src="../img/Default/Logo Brand.jpg" alt="" class="img-fluid">
-                                        <h6 class="store-title">Toko Araya Media Solution
-                                            <a href="<?= base_url('produk/sunting_ketersediaan') ?>" class="btn btn-sm btn-outline-secondary text-right mt-2"><i class="fas fa-edit"></i></a>
-                                        </h6>
-                                        
-                                    </div>
-                                    <div class="store-body">
-                                        <span><small>stok produk di toko ini</small></span>
-                                        <h6>
-                                            <b>5</b> <small>pcs</small>
-                                        </h6>
-                                        <span><small>harga di toko ini</small></span>
-                                        <h6 class="store-price">
-                                            Rp. 500.000
-                                        </h6>
-                                    </div>
-                                    <div class="store-footer">
-                                        <span><small>lihat produk di toko ini</small></span>
-                                        <a href="" class="btn btn-primary">Shopee</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="store-header">
-                                        <img src="../img/Default/Logo Brand.jpg" alt="" class="img-fluid">
-                                        <h6 class="store-title">Toko Araya Media Solution
-                                            <a href="<?= base_url('produk/sunting_ketersediaan') ?>" class="btn btn-sm btn-outline-secondary text-right mt-2"><i class="fas fa-edit"></i></a>
+                                        <?php if(is_null($kt->gambar_penjual)) : ?>
+                                        <img src="<?= base_url('img/Default/Logo Brand.jpg') ?>" alt="" class="img-fluid">
+                                            <?php else : ?>
+                                            <img src="<?= base_url('img/penjual/'.$kt->gambar_penjual) ?>" alt="" class="img-fluid">
+                                        <?php endif ?>
+                                        <h6 class="store-title"><?= $kt->nama_penjual ?>
+                                            <br>
+                                            <a href="<?= base_url('produk/sunting_ketersediaan/'.$kt->id_ketersediaan) ?>" class="btn btn-sm btn-outline-secondary text-right mt-2"><i class="fas fa-edit"></i></a>
                                         </h6>
                                     </div>
                                     <div class="store-body">
                                         <span><small>stok produk di toko ini</small></span>
                                         <h6>
-                                            <b>5</b> <small>pcs</small>
+                                            <b><?= $kt->stok ?></b> <small>pcs</small>
                                         </h6>
                                         <span><small>harga di toko ini</small></span>
                                         <h6 class="store-price">
-                                            Rp. 500.000
+                                            Rp. <?= number_format($kt->harga_satuan, 0, ',', '.') ?>
                                         </h6>
                                     </div>
                                     <div class="store-footer">
-                                        <span><small>lihat produk di toko ini</small></span>
-                                        <a href="" class="btn btn-primary">Shopee</a>
+                                        <span><small class="text-secondary">update terakhir <b><?= $kt->log_date ?> <?= $kt->log_time ?></b></small></span>
+                                        <a href="<?= $kt->tautan_produk ?>" class="btn btn-primary"><?= $kt->situs ?></a>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="store-header">
-                                        <img src="../img/Default/Logo Brand.jpg" alt="" class="img-fluid">
-                                        <h6 class="store-title">Toko Araya Media Solution
-                                            <a href="<?= base_url('produk/sunting_ketersediaan') ?>" class="btn btn-sm btn-outline-secondary text-right mt-2"><i class="fas fa-edit"></i></a>
-                                        </h6>
-                                    </div>
-                                    <div class="store-body">
-                                        <span><small>stok produk di toko ini</small></span>
-                                        <h6>
-                                            <b>5</b> <small>pcs</small>
-                                        </h6>
-                                        <span><small>harga di toko ini</small></span>
-                                        <h6 class="store-price">
-                                            Rp. 500.000
-                                        </h6>
-                                    </div>
-                                    <div class="store-footer">
-                                        <span><small>lihat produk di toko ini</small></span>
-                                        <a href="" class="btn btn-primary">Shopee</a>
-                                    </div>
-                                </li>
+                                <?php endforeach ?>
+                                
                             </ul>
                             
                         </div>
