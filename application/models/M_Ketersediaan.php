@@ -60,6 +60,13 @@ class M_Ketersediaan extends CI_Model
     {
         $this->db->where('id_ketersediaan', $id_ketersediaan);
         $this->db->delete($this->_tKetersediaan);
+        $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-trash"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menghapus data ketersediaan produk</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
+    }
+
+    public function delKetersediaanByProdukID($id_produk)
+    {
+        $this->db->where('id_produk', $id_produk);
+        $this->db->delete($this->_tKetersediaan);
     }
 
     public function selectHargaMin($id_produk)

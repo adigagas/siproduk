@@ -131,6 +131,29 @@ class Produk extends CI_Controller {
 		}
 	}
 
+	public function hapus($id_produk)
+	{
+		// Cek id_produk
+		if(is_null($id_produk)) {
+			$this->session->set_flashdata('message', '<div class="card-notif notif-danger" id="notif"><div class="notif-icon"><i class="fas fa-exclamation-triangle"></i></div><div class="notif-body"><div class="notif-title">Galat !</div><small>Produk tidak ditemukan</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
+
+			// alihkan ke halaman produk
+			redirect(base_url('produk'));
+		} else {
+			// echo $id_produk;
+			// exit();
+
+			// hapus ketersediaan sesuai id_produk
+			$this->M_Ketersediaan->delKetersediaanByProdukID($id_produk);
+
+			// hapus produk
+			$this->M_Produk->deleteProduk($id_produk);
+			// Notif
+			$this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-trash"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menghapus data produk</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
+			redirect(base_url('produk'));
+		}
+	}
+
 	public function tambah_ketersediaan($id_produk = null)
 	{
 		if ($this->input->post('submit')) {
@@ -214,9 +237,7 @@ class Produk extends CI_Controller {
 
 	public function hapus_ketersediaan($id_ketersediaan = null)
 	{
-		// echo $id_ketersediaan;
-		// exit();
-
+		// Cek id_ketersediaan
 		if (is_null($id_ketersediaan)) {
 			// alihkan ke halaman produk ketika tidak terdapat id ketersediaan
 			redirect(base_url('produk'));

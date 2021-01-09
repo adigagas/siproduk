@@ -16,6 +16,25 @@
     <?= $this->session->flashdata('message'); ?>
     <!-- end alert -->
 
+    <!-- Modal Hapus -->
+    <div class="modal fade" id="hapus" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-danger">
+                    <h5 class="modal-title"><i class="fas fa-times-circle"></i><b>Hapus Produk</b></h5>
+                </div>
+                <div class="modal-body text-left">
+                    <p>Menghapus produk ini akan menghapus ketersediaan juga. Apakah Anda yakin ingin menghapus produk ini?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                    <a href="<?= base_url('produk/hapus/'.$produk->id_produk) ?>" class="btn btn-danger">Hapus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Modal Hapus -->
+
     <!-- Content -->
     <div class="content" id="content">
 
@@ -70,9 +89,9 @@
                                             <a href="<?= base_url('produk/sunting/'.$produk->id_produk) ?>" class="btn btn-secondary">
                                                 <i class="fas fa-edit"></i> Sunting
                                             </a>
-                                            <a href="" class="btn btn-danger">
+                                            <button class="btn btn-danger" data-toggle="modal" data-target="#hapus" data-whatever="<?= $produk->id_produk ?>">
                                                 <i class="fas fa-trash-alt"></i> Hapus
-                                            </a>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -217,6 +236,19 @@
 
     <!-- Script -->
     <?php $this->load->view("template/js.php") ?>
+
+    <!-- js hapus -->
+    <script>
+        $('#hapus_ketersediaan').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var data_hapus = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('Hapus Produk ')
+            modal.find('.modal-footer form input#hapus_ketersediaan').val(data_hapus)
+        })
+    </script>
 
 </body>
 </html>
