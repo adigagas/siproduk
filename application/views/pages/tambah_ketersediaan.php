@@ -32,7 +32,7 @@
                             <!-- form -->
                             <form action="<?= base_url('produk/tambah_ketersediaan') ?>" method="post" class="text-left">
                                 <!-- <input type="text" id="id_ketersediaan" hidden> -->
-                                <input type="text" name="id_produk" value="<?= $produk->id_produk ?>">
+                                <input type="hidden" name="id_produk" value="<?= $produk->id_produk ?>">
                                 <div class="form-group row">
                                     <label for="id_penjual" class="col-xl-3 col-form-label">Toko/Penjual</label>
                                     <div class="col-xl-5">
@@ -47,7 +47,7 @@
                                 <div class="form-group row">
                                     <label for="situs" class="col-xl-3 col-form-label">Situs/Sumber</label>
                                     <div class="col-xl-5">
-                                        <input type="text" class="form-control" name="situs" id="" placeholder="Situs">
+                                        <input type="text" class="form-control" name="situs" id="" placeholder="Situs" maxlength="16">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -59,13 +59,13 @@
                                 <div class="form-group row">
                                     <label for="harga_satuan" class="col-xl-3 col-form-label">Harga Satuan</label>
                                     <div class="col-xl-5">
-                                        <input type="number" class="form-control" name="harga_satuan" id="" placeholder="Harga">
+                                        <input type="number" class="form-control" name="harga_satuan" id="" placeholder="Harga" maxlength="32">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="stok" class="col-xl-3 col-form-label">Stok Produk</label>
                                     <div class="col-xl-2">
-                                        <input type="text" class="form-control" name="stok" id="" placeholder="Stok">
+                                        <input type="text" class="form-control" name="stok" id="" placeholder="Stok" maxlength="5">
                                     </div>
                                 </div>
                                 <div class="text-right">

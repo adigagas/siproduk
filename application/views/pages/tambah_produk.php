@@ -32,38 +32,39 @@
                                 <div class="form-group row">
                                     <label for="no_sku" class="col-xl-3">No SKU</label>
                                     <div class="col-xl">
-                                        <input type="text" id="no_sku" name="no_sku" class="form-control">
+                                        <input type="text" id="no_sku" name="no_sku" class="form-control" maxlength="128">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="nama_produk" class="col-xl-3">Nama Produk</label>
                                     <div class="col-xl">
-                                        <input type="text" id="nama_produk" name="nama_produk" class="form-control">
+                                        <input type="text" id="nama_produk" name="nama_produk" class="form-control" maxlength="128">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="merek" class="col-xl-3">Merek</label>
                                     <div class="col-xl">
-                                        <input type="text" id="merek" name="merek" class="form-control">
+                                        <input type="text" id="merek" name="merek" class="form-control" maxlength="32">
                                     </div>
                                 </div>
                                     
                                 <div class="form-group row">
                                     <label for="kondisi" class="col-xl-3">Kondisi</label>
                                     <div class="col-xl">
-                                        <input type="text" id="kondisi" name="kondisi" class="form-control">
+                                        <input type="text" id="kondisi" name="kondisi" class="form-control" maxlength="32">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="garansi" class="col-xl-3">Garansi</label>
                                     <div class="col-xl">
-                                        <input type="text" id="garansi" name="garansi" class="form-control">
+                                        <input type="text" id="garansi" name="garansi" class="form-control" maxlength="32">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="garansi" class="col-xl-3">Kategori</label>
                                     <div class="col-xl">
                                         <select type="text" name="id_kategori" id="id_kategori" class="form-control selectpicker" data-live-search="true" placeholder="pilih kategori">
+                                            <option value="">--pilih kategori--</option>
                                             <?php foreach ($kategori as $k) : ?>
                                                 <option value="<?= $k->id_kategori ?>" > <?= $k->nama_kategori ?></option>
                                             <?php endforeach; ?>
@@ -95,25 +96,25 @@
                                 <div class="form-group row">
                                     <label for="panjang" class="col-xl-3">Panjang</label>
                                     <div class="col-xl">
-                                        <input type="number" id="panjang" name="panjang" class="form-control">
+                                        <input type="number" id="panjang" name="panjang" class="form-control" onKeyPress="if(this.value.length==11) return false;">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="lebar" class="col-xl-3">Lebar</label>
                                     <div class="col-xl">
-                                        <input type="number" id="lebar" name="lebar" class="form-control">
+                                        <input type="number" id="lebar" name="lebar" class="form-control" onKeyPress="if(this.value.length==11) return false;">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="tinggi" class="col-xl-3">Tinggi</label>
                                     <div class="col-xl">
-                                        <input type="number" id="tinggi" name="tinggi" class="form-control">
+                                        <input type="number" id="tinggi" name="tinggi" class="form-control" onKeyPress="if(this.value.length==11) return false;">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="berat" class="col-xl-3">Berat</label>
                                     <div class="col-xl">
-                                        <input type="number" id="berat" name="berat" class="form-control">
+                                        <input type="number" id="berat" name="berat" class="form-control" onKeyPress="if(this.value.length==11) return false;">
                                     </div>
                                 </div>
                             </div>

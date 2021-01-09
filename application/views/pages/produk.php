@@ -34,10 +34,10 @@
                                 <h5 class="card-title"><b>Harga</b></h5>
                                 <h6 class="card-subtitle mb-2 text-muted">filter harga</h6>
                                 <div class="form-group">
-                                    <input type="number" class="form-control"  id="hargamin" placeholder="Harga Minimal Rp.">
+                                    <input type="number" class="form-control"  id="hargamin" placeholder="Harga Minimal Rp." onKeyPress="if(this.value.length==11) return false;">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="hargamax" placeholder="Harga Maksimal Rp.">
+                                    <input type="number" class="form-control" id="hargamax" placeholder="Harga Maksimal Rp." onKeyPress="if(this.value.length==11) return false;">
                                 </div>
                                 <i><small class="text-danger">* harga maksimal harus lebih tinggi dari harga minimal</small></i>
                                 <hr>
