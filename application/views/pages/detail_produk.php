@@ -12,6 +12,10 @@
     <?php $this->load->view("template/navbar.php") ?>
     <!-- end Navbar -->
 
+    <!-- alert -->
+    <?= $this->session->flashdata('message'); ?>
+    <!-- end alert -->
+
     <!-- Content -->
     <div class="content" id="content">
 
@@ -179,6 +183,7 @@
                                         <h6 class="store-title"><?= $kt->nama_penjual ?>
                                             <br>
                                             <a href="<?= base_url('produk/sunting_ketersediaan/'.$kt->id_ketersediaan) ?>" class="btn btn-sm btn-outline-secondary text-right mt-2"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url('produk/hapus_ketersediaan/'.$kt->id_ketersediaan) ?>" class="btn btn-sm btn-outline-danger text-right mt-2"><i class="fas fa-trash"></i></a>
                                         </h6>
                                     </div>
                                     <div class="store-body">

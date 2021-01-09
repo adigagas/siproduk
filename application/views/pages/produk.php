@@ -34,10 +34,10 @@
                                 <h5 class="card-title"><b>Harga</b></h5>
                                 <h6 class="card-subtitle mb-2 text-muted">filter harga</h6>
                                 <div class="form-group">
-                                    <input type="number" class="form-control"  id="hargamin" placeholder="Harga Minimal Rp." onKeyPress="if(this.value.length==11) return false;">
+                                    <input type="number" class="form-control"  id="hargamin" name="hargamin" placeholder="Harga Minimal Rp." onKeyPress="if(this.value.length==11) return false;" value="<?= $hargamin ?>">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="hargamax" placeholder="Harga Maksimal Rp." onKeyPress="if(this.value.length==11) return false;">
+                                    <input type="number" class="form-control" id="hargamax" name="hargamax" placeholder="Harga Maksimal Rp." onKeyPress="if(this.value.length==11) return false;" value="<?= $hargamax ?>">
                                 </div>
                                 <i><small class="text-danger">* harga maksimal harus lebih tinggi dari harga minimal</small></i>
                                 <hr>
@@ -48,7 +48,7 @@
                                     <select type="text" name="f_kategori" id="kategori" class="form-control selectpicker" data-live-search="true">
                                         <option value="">--pilih kategori--</option>
                                         <?php foreach ($kategori as $k) : ?>
-                                            <option value="<?= $k->id_kategori ?>" > <?= $k->nama_kategori ?></option>
+                                            <option value="<?= $k->id_kategori ?>" <?php if($k->id_kategori == $f_kategori) : ?>selected<?php endif ?> > <?= $k->nama_kategori ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -76,7 +76,7 @@
                                         </div>
                                         <div class="col-md">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" value="" id="keyword" name="keyword" placeholder="Cari kategori..">
+                                                <input type="text" class="form-control" id="keyword" name="keyword" placeholder="Cari kategori.." value="<?= $keyword ?>">
                                                 <div class="input-group-append">
                                                     <input class="btn btn-primary" type="submit" name="cari" id="cari" value="Cari">
                                                 </div>

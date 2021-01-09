@@ -11,12 +11,16 @@
     <?php $this->load->view("template/navbar.php") ?>
     <!-- end Navbar -->
 
+    <!-- alert -->
+    <?= $this->session->flashdata('message'); ?>
+    <!-- end alert -->
+
     <!-- Content -->
     <div class="content" id="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl text-primary mb-3">
-                    <h4>Sunting Ketersediaan</h4>
+                    <h4>Tambah Ketersediaan</h4>
                 </div>
             </div>
         </div>
@@ -26,51 +30,51 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <b>Form Sunting Ketersediaan</b>
+                                <b>Form Tambah Ketersediaan</b>
                             </h5>
 
                             <!-- form -->
-                            <form action="ketersediaan.html" method="" class="text-left">
-                                <input type="text" id="id_ketersediaan" hidden>
+                            <form action="<?= base_url('produk/sunting_ketersediaan') ?>" method="post" class="text-left">
+                            
+                                <input type="hidden" name="id_ketersediaan" value="<?= $ketersediaan->id_ketersediaan ?>">
+                                <input type="hidden" name="id_produk" value="<?= $ketersediaan->id_produk ?>">
                                 <div class="form-group row">
                                     <label for="id_penjual" class="col-xl-3 col-form-label">Toko/Penjual</label>
                                     <div class="col-xl-5">
-                                        <select type="text" id="id_penjual" class="form-control selectpicker" data-live-search="true">
-                                            <option value="">--pilih Toko/Penjual--</option>
-                                            <option value="1">Araya Media Computer</option>
-                                            <option value="2">Jaya Media</option>
-                                            <option value="3">Super Computer</option>
-                                            <option value="4">Malang Multimedia</option>
+                                        <select type="text" id="id_penjual" name="id_penjual" class="form-control selectpicker" data-live-search="true">
+                                            <?php foreach($penjual as $pj) : ?>
+                                                <option value="<?= $pj->id_penjual ?>" <?php if($pj->id_penjual == $ketersediaan->id_penjual) : ?>selected<?php endif ?> ><?= $pj->nama_penjual ?></option>
+                                            <?php endforeach ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="situs" class="col-xl-3 col-form-label">Situs/Sumber</label>
                                     <div class="col-xl-5">
-                                        <input type="text" class="form-control" name="situs" id="" placeholder="Situs">
+                                        <input type="text" class="form-control" name="situs" id="" placeholder="Situs" value="<?= $ketersediaan->situs ?>" maxlength="16">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="tautan_produk" class="col-xl-3 col-form-label">Tautan Produk</label>
                                     <div class="col-xl">
-                                        <input type="text" class="form-control" name="tautan_produk" id="" placeholder="Tautan">
+                                        <input type="text" class="form-control" name="tautan_produk" id="" placeholder="Tautan" value="<?= $ketersediaan->tautan_produk ?>" >
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="harga_satuan" class="col-xl-3 col-form-label">Harga Satuan</label>
                                     <div class="col-xl-5">
-                                        <input type="number" class="form-control" name="harga_satuan" id="" placeholder="Harga">
+                                        <input type="number" class="form-control" name="harga_satuan" id="" value="<?= $ketersediaan->harga_satuan ?>" placeholder="Harga" onKeyPress="if(this.value.length==11) return false;">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="stok" class="col-xl-3 col-form-label">Stok Produk</label>
                                     <div class="col-xl-2">
-                                        <input type="text" class="form-control" name="stok" id="" placeholder="Stok">
+                                        <input type="number" class="form-control" name="stok" id="" value="<?= $ketersediaan->stok ?>" placeholder="Stok" onKeyPress="if(this.value.length==5) return false;">
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                        <a href="ketersediaan.html" type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Batal </a>
-                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan </button>
+                                        <a href="<?= base_url('produk/detail/').$ketersediaan->id_produk ?>" type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Batal </a>
+                                        <input class="btn btn-primary" type="submit" name="submit" value="Simpan">
                                 </div>
                             </form>
                             <!-- end form -->

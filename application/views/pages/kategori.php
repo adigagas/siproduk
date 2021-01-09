@@ -29,7 +29,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="nama_kategori">Nama Kategori</label>
-                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori" placeholder="Nama Kategori">
+                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori" placeholder="Nama Kategori" maxlength="128">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <input type="hidden" class="form-control" name="id_kategori" id="sunting_kategori">
                             <label for="nama_kategori">Nama Kategori</label>
-                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori" placeholder="Nama Kategori">
+                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori" placeholder="Nama Kategori" maxlength="128">
                         </div>
                     </div>
                     <div class="modal-footer">

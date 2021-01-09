@@ -11,6 +11,10 @@
     <?php $this->load->view("template/navbar.php") ?>
     <!-- end Navbar -->
 
+    <!-- alert -->
+    <?= $this->session->flashdata('message'); ?>
+    <!-- end alert -->
+
     <!-- Content -->
     <div class="content" id="content">
         <div class="container-fluid">
@@ -59,13 +63,13 @@
                                 <div class="form-group row">
                                     <label for="harga_satuan" class="col-xl-3 col-form-label">Harga Satuan</label>
                                     <div class="col-xl-5">
-                                        <input type="number" class="form-control" name="harga_satuan" id="" placeholder="Harga" maxlength="32">
+                                        <input type="number" class="form-control" name="harga_satuan" id="" placeholder="Harga" onKeyPress="if(this.value.length==11) return false;">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="stok" class="col-xl-3 col-form-label">Stok Produk</label>
                                     <div class="col-xl-2">
-                                        <input type="text" class="form-control" name="stok" id="" placeholder="Stok" maxlength="5">
+                                        <input type="number" class="form-control" name="stok" id="" placeholder="Stok" onKeyPress="if(this.value.length==5) return false;">
                                     </div>
                                 </div>
                                 <div class="text-right">

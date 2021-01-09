@@ -48,15 +48,55 @@ class M_Produk extends CI_Model
     }
 
     // Mengambil produk sesuai Keyword
-    public function getProduk($limit, $start, $keyword = null, $f_kategori = null)
+    public function getProduk($limit, $start, $keyword = null, $f_kategori = null, $hargamin = null, $hargamax = null)
     {
-        if ($keyword && $f_kategori) {
+        if ($keyword && $f_kategori && $hargamin && $hargamax) {
             $this->db->like('nama_produk', $keyword);  
-            $this->db->like('id_kategori', $f_kategori);
+            $this->db->where('id_kategori', $f_kategori);
+            $this->db->where('harga_terendah >', $hargamin - 1);
+            $this->db->where('harga_terendah <', $hargamax + 1);
+        } elseif ($keyword && $hargamin && $hargamax) {
+            $this->db->like('nama_produk', $keyword);  
+            $this->db->where('harga_terendah >', $hargamin - 1);
+            $this->db->where('harga_terendah <', $hargamax + 1);
+        } elseif ($f_kategori && $hargamin && $hargamax) {
+            $this->db->where('id_kategori', $f_kategori);
+            $this->db->where('harga_terendah >', $hargamin - 1);
+            $this->db->where('harga_terendah <', $hargamax + 1);
+        } elseif ($keyword && $f_kategori && $hargamin) {
+            $this->db->like('nama_produk', $keyword);  
+            $this->db->where('id_kategori', $f_kategori);
+            $this->db->where('harga_terendah >', $hargamin - 1);
+        } elseif ($keyword && $f_kategori && $hargamax) {
+            $this->db->like('nama_produk', $keyword);  
+            $this->db->where('id_kategori', $f_kategori);
+            $this->db->where('harga_terendah <', $hargamax + 1);
+        } elseif ($keyword && $f_kategori) {
+            $this->db->like('nama_produk', $keyword);  
+            $this->db->where('id_kategori', $f_kategori);
+        } elseif ($hargamin && $hargamax) {
+            $this->db->where('harga_terendah >', $hargamin - 1);
+            $this->db->where('harga_terendah <', $hargamax + 1);
+        } elseif ($keyword && $hargamin) {
+            $this->db->like('nama_produk', $keyword);
+            $this->db->where('harga_terendah >', $hargamin - 1);
+        } elseif ($f_kategori && $hargamin) {
+            $this->db->where('id_kategori', $f_kategori);
+            $this->db->where('harga_terendah >', $hargamin - 1);
+        } elseif ($keyword && $hargamax) {
+            $this->db->like('nama_produk', $keyword);
+            $this->db->where('harga_terendah <', $hargamax + 1);
+        } elseif ($f_kategori && $hargamax) {
+            $this->db->where('id_kategori', $f_kategori);
+            $this->db->where('harga_terendah <', $hargamax + 1);
+        } elseif ($hargamin) {
+            $this->db->where('harga_terendah >', $hargamin - 1);
+        } elseif ($hargamax) {
+            $this->db->where('harga_terendah <', $hargamax + 1);
         } elseif ($keyword) {
-            $this->db->like('nama_produk', $keyword);  
+            $this->db->like('nama_produk', $keyword);
         } elseif ($f_kategori) {
-            $this->db->like('id_kategori', $f_kategori);
+            $this->db->where('id_kategori', $f_kategori);
         }
 
         return $this->db->get($this->_tProduk, $limit, $start)->result();
