@@ -127,3 +127,8 @@
         });
     });
 </script>
+
+<!-- ckEditor -->
+<script>
+    CKEDITOR.replace('deskripsi');
+</script>

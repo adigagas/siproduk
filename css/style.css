@@ -341,6 +341,7 @@ a.text-primary:focus {
 	/* width: calc(25% - 10px); */
 	/* min-width: 200px; */
 	width: auto;
+	height: 100%;
 	transition: all .2s ease-in-out;
 	margin-bottom: 16px;
 }

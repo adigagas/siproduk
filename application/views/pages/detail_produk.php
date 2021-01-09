@@ -54,16 +54,16 @@
                                             </div>
                                         </div>
                                         <div class="produk-body">
-                                            <span>Harga</span>
+                                            <span>Harga mulai dari</span>
                                             <h4 class="produk-price">
-                                                Rp. 500.000 ~ Rp. 540.000
+                                                Rp. <?= number_format($produk->harga_terendah, 0, ',', '.') ?>
                                             </h4>
                                             <small>
                                                 <i>Harga dapat di cek di toko melalui link di samping</i>
                                             </small>
                                         </div>
                                         <div class="produk-footer">
-                                            <a href="<?= base_url('produk/sunting'.$produk->id_produk) ?>" class="btn btn-secondary">
+                                            <a href="<?= base_url('produk/sunting/'.$produk->id_produk) ?>" class="btn btn-secondary">
                                                 <i class="fas fa-edit"></i> Sunting
                                             </a>
                                             <a href="" class="btn btn-danger">
@@ -80,60 +80,64 @@
                         <div class="card-body">
                             <div class="section">
                                 <h5 class="card-title">
-                                    Informasi Produk
+                                    <b>
+                                        Informasi Produk
+                                    </b>
                                 </h5>
                                 <table class="desc-table">
                                     <tr>
                                         <td class="desc-title">No SKU</td>
-                                        <td width>:</td>
+                                        <td class="text-center" width="50px">:</td>
                                         <td><?= $produk->no_sku ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Kategori</td>
-                                        <td>:</td>
+                                        <td class="text-center">:</td>
                                         <td><?= $produk->nama_kategori ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Merek/Penerbit</td>
-                                        <td>:</td>
+                                        <td class="text-center">:</td>
                                         <td><?= $produk->merek ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Kondisi</td>
-                                        <td>:</td>
+                                        <td class="text-center">:</td>
                                         <td><?= $produk->kondisi ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Garansi</td>
-                                        <td>:</td>
+                                        <td class="text-center">:</td>
                                         <td><?= $produk->garansi ?></td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Panjang</td>
-                                        <td>:</td>
-                                        <td><?= $produk->panjang ?></td>
+                                        <td class="text-center">:</td>
+                                        <td><?= $produk->panjang ?> cm</td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Lebar</td>
-                                        <td>:</td>
-                                        <td><?= $produk->lebar ?></td>
+                                        <td class="text-center">:</td>
+                                        <td><?= $produk->lebar ?> cm</td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Tinggi</td>
-                                        <td>:</td>
-                                        <td><?= $produk->tinggi ?></td>
+                                        <td class="text-center">:</td>
+                                        <td><?= $produk->tinggi ?> cm</td>
                                     </tr>
                                     <tr>
                                         <td class="desc-title">Berat</td>
-                                        <td>:</td>
-                                        <td><?= $produk->berat ?></td>
+                                        <td class="text-center">:</td>
+                                        <td><?= $produk->berat ?> gram</td>
                                     </tr>
                                 </table>
                             </div>
                             
                             <div class="section">
                                 <h5 class="card-title">
+                                    <b>
                                     Deskripsi
+                                    </b>
                                 </h5>
                                 <p>
                                     <?= $produk->deskripsi ?>
@@ -152,10 +156,12 @@
                             <h5 class="card-title">
                                 <div class="row">
                                     <div class="col">
-                                        Penjual
+                                        <b>
+                                            Penjual
+                                        </b>
                                     </div>
                                     <div class="col text-right">
-                                        <a href="<?= base_url('produk/tambah_ketersediaan') ?>" class="btn btn-sm btn-outline-primary text-right"><i class="fas fa-plus"></i></a>     
+                                        <a href="<?= base_url('produk/tambah_ketersediaan/'.$produk->id_produk) ?>" class="btn btn-sm btn-outline-primary text-right"><i class="fas fa-plus"></i></a>     
                                     </div>
                                 </div>
                             </h5>

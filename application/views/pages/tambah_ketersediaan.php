@@ -30,17 +30,17 @@
                             </h5>
 
                             <!-- form -->
-                            <form action="ketersediaan.html" method="" class="text-left">
-                                <input type="text" id="id_ketersediaan" hidden>
+                            <form action="<?= base_url('produk/tambah_ketersediaan') ?>" method="post" class="text-left">
+                                <!-- <input type="text" id="id_ketersediaan" hidden> -->
+                                <input type="text" name="id_produk" value="<?= $produk->id_produk ?>">
                                 <div class="form-group row">
                                     <label for="id_penjual" class="col-xl-3 col-form-label">Toko/Penjual</label>
                                     <div class="col-xl-5">
-                                        <select type="text" id="id_penjual" class="form-control selectpicker" data-live-search="true">
+                                        <select type="text" id="id_penjual" name="id_penjual" class="form-control selectpicker" data-live-search="true">
                                             <option value="">--pilih Toko/Penjual--</option>
-                                            <option value="1">Araya Media Computer</option>
-                                            <option value="2">Jaya Media</option>
-                                            <option value="3">Super Computer</option>
-                                            <option value="4">Malang Multimedia</option>
+                                            <?php foreach($penjual as $pj) : ?>
+                                                <option value="<?= $pj->id_penjual ?>"><?= $pj->nama_penjual ?></option>
+                                            <?php endforeach ?>
                                         </select>
                                     </div>
                                 </div>
@@ -69,8 +69,8 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                        <a href="ketersediaan.html" type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Batal </a>
-                                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan </button>
+                                        <a href="<?= base_url('produk/detail/').$produk->id_produk ?>" type="button" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Batal </a>
+                                        <input class="btn btn-primary" type="submit" name="submit" value="Simpan">
                                 </div>
                             </form>
                             <!-- end form -->

@@ -33,6 +33,7 @@ class Produk extends CI_Controller {
 		$this->load->model('M_Produk');
 		$this->load->model('M_Kategori');
 		$this->load->model('M_Ketersediaan');
+		$this->load->model('M_Penjual');
 
 	}
 
@@ -59,7 +60,7 @@ class Produk extends CI_Controller {
 		// config
 		$config['base_url'] = 'http://localhost/siproduk/kategori/index';
 		$config['total_rows'] = $this->db->count_all_results();
-		$config['per_page'] = 10;
+		$config['per_page'] = 20;
 		$data['total_rows'] = $config['total_rows'];
 		$data['per_page'] = $config['per_page'];
 
@@ -90,17 +91,72 @@ class Produk extends CI_Controller {
 
 	public function tambah()
 	{
-		$this->load->view('pages/tambah_produk');
+		if ($this->input->post('submit')) {
+            $this->M_Produk->addProduk();
+            redirect('produk');
+        }
+
+		// Kategori
+		$data['kategori'] = $this->M_Kategori->getAllKategori();
+
+		$this->load->view('pages/tambah_produk', $data);
 	}
 
-	public function sunting()
+	public function sunting($id_produk = null)
 	{
-		$this->load->view('pages/sunting_produk');
+		if ($this->input->post('submit')) {
+            $this->M_Produk->updateProduk($this->input->post('id_produk'));
+            redirect('produk/detail/'.$this->input->post('id_produk'));
+		}
+		
+		// Cek apakah terdapat id produk
+		if (is_null($id_produk)) {
+			// alihkan ke halaman produk ketika tidak terdapat id produk
+			redirect(base_url('produk'));
+		} else {
+			// ambil data Kategori
+			$data['kategori'] = $this->M_Kategori->getAllKategori();
+
+			// ambil data Produk sesuai id produk
+			$data['produk'] = $this->M_Produk->getProdukById($id_produk);
+			$this->load->view('pages/sunting_produk', $data);
+		}
 	}
 
-	public function tambah_ketersediaan()
+	public function tambah_ketersediaan($id_produk = null)
 	{
-		$this->load->view('pages/tambah_ketersediaan');
+		if ($this->input->post('submit')) {
+			$this->M_Ketersediaan->addKetersediaan($id_produk);
+
+			// dapatkan harga teredah
+			$data['ketersediaan'] = $this->M_Ketersediaan->selectHargaMin($this->input->post('id_produk'));
+			// $harga_terendah = $this->M_Ketersediaan->selectHargaMin($this->input->post('id_produk'));
+
+			$harga = $data['ketersediaan']->harga_satuan;
+
+			// echo $harga_terendah;
+			// echo $harga_terendah->harga_terendah;
+			// echo '<pre>',print_r($data),'</pre>';
+			// echo $harga;
+			// echo '<pre>',print_r($harga_terendah),'</pre>';
+			// exit();
+            $this->M_Produk->updateHargaTerendah($this->input->post('id_produk'),$harga);
+            redirect('produk/detail/'.$this->input->post('id_produk'));
+		}
+		
+		// Cek apakah terdapat id produk
+		if (is_null($id_produk)) {
+			// alihkan ke halaman produk ketika tidak terdapat id produk
+			redirect(base_url('produk'));
+		} else {
+			// ambil data Penjual
+			$data['penjual'] = $this->M_Penjual->getAllPenjual();
+			
+			// ambil id_produk
+			$data['produk'] = $this->M_Produk->getById($id_produk);
+
+			$this->load->view('pages/tambah_ketersediaan', $data);
+		}
 	}
 
 	public function sunting_ketersediaan()

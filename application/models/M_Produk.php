@@ -82,6 +82,9 @@ class M_Produk extends CI_Model
         $this->tinggi = $post['tinggi'];
         $this->berat = $post['berat'];
         $this->deskripsi = $post['deskripsi'];
+        $this->harga_terendah = 0;
+        $this->id_kategori = $post['id_kategori'];
+        $this->gambar = $this->_uploadImage();
 
         $this->db->insert($this->_tProduk, $this);
         $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-plus"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menambah data produk</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
@@ -93,7 +96,29 @@ class M_Produk extends CI_Model
         $post = $this->input->post();
         $this->id_produk = $post['id_produk'];
         $this->nama_produk = $post['nama_produk'];
+        $this->no_sku = $post['no_sku'];
+        $this->merek = $post['merek'];
+        $this->kondisi = $post['kondisi'];
+        $this->garansi = $post['garansi'];
+        $this->panjang = $post['panjang'];
+        $this->lebar = $post['lebar'];
+        $this->tinggi = $post['tinggi'];
+        $this->berat = $post['berat'];
+        $this->deskripsi = $post['deskripsi'];
+        $this->harga_terendah = 0;
+        $this->id_kategori = $post['id_kategori'];
+
+        if (!empty($_FILES["gambar"]["name"])) {
+            if ($post["old_gambar"] != 'produk.jpg') {
+                unlink(FCPATH . './img/produk/' . $post["old_gambar"]);
+            }
+            $this->gambar = $this->_uploadImage();
+        } else {
+            $this->gambar = $post["old_gambar"];
+        }
+
         $this->db->update($this->_tProduk, $this, array("id_produk" => $id_produk));
+
         $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-pen"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menyunting data produk</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
     }
 
@@ -115,11 +140,22 @@ class M_Produk extends CI_Model
         // return $this->db->get_where($this->_tProduk, ["id_produk" => $id_produk])->row();
     }
 
+    public function getById($id_produk)
+    {
+        return $this->db->get_where($this->_tProduk, ["id_produk" => $id_produk])->row();
+    }
+
+    public function updateHargaTerendah($id_produk,$harga_terendah)
+    {
+        $this->db->set('harga_terendah', $harga_terendah);
+        $this->db->where('id_produk', $id_produk);
+        $this->db->update($this->_tProduk);
+    }
 
     private function _deleteImage($id_produk)
     {
         $produk = $this->getById($id_produk);
-        if ($produk->image != "produk.jpg") {
+        if ($produk->gambar != "produk.jpg") {
             $filename = explode(".", $produk->gambar)[0];
             return array_map('unlink', glob(FCPATH . "./img/produk/$filename.*"));
         }
@@ -129,18 +165,16 @@ class M_Produk extends CI_Model
     {
         $config['upload_path']          =  './img/produk/';
         $config['allowed_types']        = 'gif|jpg|png|JPG|JPEG';
-        $config['max_size']             = 9048;
+        $config['max_size']             = 90480;
         $config['overwrite']            = true;
         $config['file_name']            = $_FILES['gambar']['name'];
-        // 1MB
-        // $config['max_width']            = 1024;
-        // $config['max_height']           = 768;
+        // 10MB
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('gambar')) {
             return $this->upload->data("file_name");
         }
-
+        
         return "produk.jpg";
     }
 }
