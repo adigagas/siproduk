@@ -66,7 +66,7 @@ class Produk extends CI_Controller {
 		$this->db->from('tb_produk');
 
 		// config
-		$config['base_url'] = 'http://localhost/siproduk/kategori/index';
+		$config['base_url'] = 'http://localhost/siproduk/produk/index';
 		$config['total_rows'] = $this->db->count_all_results();
 		$config['per_page'] = 20;
 		$data['total_rows'] = $config['total_rows'];

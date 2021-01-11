@@ -116,7 +116,7 @@
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" value="<?= $keyword ?>" id="keyword" name="keyword" placeholder="Cari kategori..">
                                             <div class="input-group-append">
-                                                <input class="btn btn-primary" type="submit" name="cari" id="cari" value="cari">
+                                                <input class="btn btn-primary" type="submit" name="cari" id="cari" value="Cari">
                                             </div>
                                         </div>
                                     </div>
