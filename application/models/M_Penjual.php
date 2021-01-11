@@ -30,7 +30,7 @@ class M_Penjual extends CI_Model
     }
 
     // Mengambil penjual beserta jumlah produk
-    public function getAllPenjualProduk($limit, $start, $keyword = null)
+    public function getAllPenjualProduk($limit, $start, $keyword = null, $provinsi = null)
     {
         $this->db->select('tb_penjual.id_penjual, tb_penjual.nama_penjual, tb_penjual.provinsi, tb_penjual.gambar_penjual, COUNT(tb_produk.id_produk) as jumlah_produk');
         $this->db->from('tb_penjual');
@@ -39,9 +39,14 @@ class M_Penjual extends CI_Model
         // $this->db->where('tb_penjual.id_penjual', 'tb_ketersediaan.id_penjual');
         // $this->db->where('tb_produk.id_produk', 'tb_ketersediaan.id_produk');
         $this->db->where('tb_penjual.id_penjual !=', null);
-        if ($keyword) {
+        if ($keyword && $provinsi) {
             $this->db->like('tb_penjual.nama_penjual', $keyword);  
-        } 
+            $this->db->like('tb_penjual.provinsi', $provinsi);  
+        } elseif($keyword) {
+            $this->db->like('tb_penjual.nama_penjual', $keyword);  
+        } elseif($provinsi) {
+            $this->db->like('tb_penjual.provinsi', $provinsi);  
+        }
         $this->db->group_by('tb_penjual.id_penjual');
         $this->db->limit($limit, $start);
 

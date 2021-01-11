@@ -28,7 +28,7 @@
                                 <div class="col-md-3">
                                     <select type="text" name="provinsi" id="provinsi" class="form-control selectpicker" data-live-search="true" placeholder="pilih Provinsi">
                                         <option value="">--pilih provinsi--</option>
-                                        <?php foreach ($provinsi as $prov) : ?>
+                                        <?php foreach ($lokasi as $prov) : ?>
                                             <option value="<?= $prov->provinsi ?>" > <?= $prov->provinsi ?></option>
                                         <?php endforeach; ?>
                                     </select>

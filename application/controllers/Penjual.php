@@ -39,19 +39,23 @@ class Penjual extends CI_Controller {
 	public function index()
 	{
 		// ambil nama provinsi
-		$data['provinsi'] = $this->M_Penjual->getProvinsi();
+		$data['lokasi'] = $this->M_Penjual->getProvinsi();
 		// echo '<pre>',var_dump($data),'</pre>';
 		// exit();
 
 		// ambil keyword
 		if ($this->input->post('cari')) {
 			$data['keyword'] = $this->input->post('keyword');
+			$data['provinsi'] = $this->input->post('provinsi');
 			$this->session->set_userdata('keyword', $data['keyword']);
+			$this->session->set_userdata('provinsi', $data['provinsi']);
 		} else {
 			$data['keyword'] = $this->session->userdata('keyword');
+			$data['provinsi'] = $this->session->userdata('provinsi');
 		}
 
 		$this->db->like('nama_penjual', $data['keyword']);
+		$this->db->like('provinsi', $data['provinsi']);
 		$this->db->from('tb_penjual');
 
 		// config
@@ -66,7 +70,7 @@ class Penjual extends CI_Controller {
 
 		$data['start'] = $this->uri->segment(3);
 
-		$data['penjual'] = $this->M_Penjual->getAllPenjualProduk($config['per_page'], $data['start'], $data['keyword']);
+		$data['penjual'] = $this->M_Penjual->getAllPenjualProduk($config['per_page'], $data['start'], $data['keyword'], $data['provinsi']);
 		// echo '<pre>',var_dump($data),'</pre>';
 		// exit();
 		$this->load->view('pages/penjual', $data);
