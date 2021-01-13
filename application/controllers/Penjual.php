@@ -132,6 +132,31 @@ class Penjual extends CI_Controller {
 		$this->load->view('pages/tambah_penjual');
 	}
 
+	public function sunting($id_penjual = null)
+	{
+		// cek submit
+		if ($this->input->post('submit')) {
+			// echo '<pre>',var_dump($_POST, $_FILES),'</pre>';
+			// echo $id_penjual;
+			// exit();
+
+			// sunting data penjual
+			$this->M_Penjual->updatePenjual($this->input->post('id_penjual'));
+			redirect('penjual/etalase/'.$this->input->post('id_penjual'));
+		}
+
+		// cek id_penjual	
+		if(is_null($id_penjual)) {
+			redirect(base_url('penjual'));
+		} else {
+			// ambil data penjual sesuai id
+			$data['penjual'] = $this->M_Penjual->getPenjualByID($id_penjual);
+			// echo '<pre>',var_dump($data),'</pre>';
+			// exit();
+			$this->load->view('pages/sunting_penjual', $data);
+		}
+	}
+
 	public function hapus($id_penjual)
 	{
 		// cek id_penjual
@@ -142,11 +167,6 @@ class Penjual extends CI_Controller {
 			$this->M_Penjual->deletePenjual($id_penjual);
 			redirect(base_url('penjual'));
 		}
-	}
-
-	public function sunting()
-	{
-		$this->load->view('pages/sunting_penjual');
 	}
 
 }

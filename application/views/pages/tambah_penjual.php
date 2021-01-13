@@ -51,7 +51,7 @@
                                     <div class="col-xl">
                                         <div class="file-img">
                                             <div class="img-preview">
-                                                <img src="<?= base_url('img/Default/pilih gambar.png"') ?> class="img-fluid" id="img_preview" alt="" width="40%">
+                                                <img src="<?= base_url('img/Default/pilih gambar.png') ?>" class="img-fluid" id="img_preview" alt="" width="40%">
                                             </div>
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="gambar_penjual" name="gambar_penjual" onchange="preview(this)" accept="image/*">

@@ -66,6 +66,27 @@ class M_Penjual extends CI_Model
         $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-plus"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menambah data penjual</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
     }
 
+    // Sunting data penjual
+    public function updatePenjual($id_penjual)
+    {
+        $post = $this->input->post();
+        $this->id_penjual = $post['id_penjual'];
+        $this->nama_penjual = $post['nama_penjual'];
+        $this->provinsi = $post['provinsi'];
+        
+        // cek gambar baru
+        if (!empty($_FILES["gambar_penjual"]["name"])) {
+            $this->_deleteImage($post['id_penjual']);
+            $this->gambar_penjual = $this->_uploadImage();
+        } else {
+            $this->gambar_penjual = $post["old_gambar_penjual"];
+        }
+
+        // update data penjual
+        $this->db->update($this->_tPenjual, $this, array("id_penjual" => $id_penjual));
+        $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-pen"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menyunting data penjual</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
+    }
+
     // Hapus data penjual
     public function deletePenjual($id_penjual)
     {
@@ -81,6 +102,13 @@ class M_Penjual extends CI_Model
         $this->db->from($this->_tPenjual);
         
         return $this->db->get()->result();
+    }
+
+    public function getPenjualByID($id_penjual)
+    {
+        $this->db->from($this->_tPenjual);
+        $this->db->where('id_penjual', $id_penjual);
+        return $this->db->get()->row();
     }
 
     public function getByID($id_penjual)
