@@ -66,6 +66,14 @@ class M_Penjual extends CI_Model
         $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-plus"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menambah data penjual</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
     }
 
+    // Hapus data penjual
+    public function deletePenjual($id_penjual)
+    {
+        $this->db->where('id_penjual', $id_penjual);
+        $this->db->delete($this->_tPenjual);
+        $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-trash"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menghapus data penjual</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
+    }
+
     public function getProvinsi()
     {
         $this->db->distinct();
@@ -100,11 +108,12 @@ class M_Penjual extends CI_Model
 
     private function _uploadImage()
     {
+        $new_name                       = "penjual".time().$_FILES["gambar_penjual"]['name'];
         $config['upload_path']          =  './img/penjual/';
         $config['allowed_types']        = 'gif|jpg|png|JPG|JPEG';
         $config['max_size']             = 90480;
         $config['overwrite']            = true;
-        $config['file_name']            = $_FILES['gambar_penjual']['name'];
+        $config['file_name']            = $new_name;
         // 10MB
         $this->load->library('upload', $config);
 

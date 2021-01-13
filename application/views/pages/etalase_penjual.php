@@ -10,8 +10,10 @@
 
     <!-- Navbar -->
     <?php $this->load->view("template/navbar.php") ?>
-
     <!-- end Navbar -->
+
+    <!-- Alert -->
+    <?= $this->session->flashdata('message'); ?>
 
     <!-- Content -->
     <div class="content" id="content">
@@ -22,7 +24,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-xl-2">
-                                    <img src="<?= base_url('img/penjual.'.$penjual->gambar_penjual) ?>" alt="" class="img-fluid border">
+                                    <img src="<?= base_url('img/penjual/'.$penjual->gambar_penjual) ?>" alt="" class="img-fluid border">
                                 </div>
                                 <div class="col-xl">
                                     <h5 class="">
@@ -35,7 +37,7 @@
                                 </div>
                                 <div class="col-xl-2 text-right">
                                     <a href="<?= base_url('penjual/sunting/'.$penjual->id_penjual) ?>" class="btn btn-outline-secondary"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    <a href="<?= base_url('penjual/hapus/'.$penjual->id_penjual) ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
                         </div>

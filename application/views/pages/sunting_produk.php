@@ -11,6 +11,9 @@
     <?php $this->load->view("template/navbar.php") ?>
     <!-- end Navbar -->
 
+    <!-- Alert -->
+    <?= $this->session->flashdata('message'); ?>
+
     <!-- Content -->
     <div class="content" id="content">
         <div class="container-fluid">
@@ -126,10 +129,9 @@
                                 <h5 class="card-title"><b>
                                     Gambar
                                 </b></h5>
-                                                <input type="hidden" id="old_gambar" name="old_gambar" value="<?= $produk->gambar ?>">
+                                <input type="hidden" id="old_gambar" name="old_gambar" value="<?= $produk->gambar ?>">
                                 <div class="form-group row">
                                     <div class="col-xl">
-                                            
                                         <div class="file-img">
                                             <div class="img-preview">
                                                 <img src="<?= base_url('img/produk/'.$produk->gambar) ?>" class="img-fluid" id="img_preview" alt="">

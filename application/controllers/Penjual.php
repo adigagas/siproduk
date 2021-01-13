@@ -122,11 +122,26 @@ class Penjual extends CI_Controller {
 	public function tambah()
 	{
 		if ($this->input->post('submit')) {
+			// echo '<pre>',var_dump($_POST, $_FILES),'</pre>';
+			// exit();
+
             $this->M_Penjual->addPenjual();
             redirect('penjual');
 		}
 		
 		$this->load->view('pages/tambah_penjual');
+	}
+
+	public function hapus($id_penjual)
+	{
+		// cek id_penjual
+		if(is_null($id_penjual)) {
+			redirect(base_url('penjual'));
+		} else {
+			// hapus data penjual
+			$this->M_Penjual->deletePenjual($id_penjual);
+			redirect(base_url('penjual'));
+		}
 	}
 
 	public function sunting()

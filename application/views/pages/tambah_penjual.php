@@ -12,6 +12,9 @@
     <?php $this->load->view("template/navbar.php") ?>
     <!-- end Navbar -->
 
+    <!-- Alert -->
+    <?= $this->session->flashdata('message'); ?>
+
     <div class="content" id="content">
         <div class="container-fluid">
             <div class="row">
@@ -25,7 +28,7 @@
                 <div class="col-xl-7 col-lg">
                     <div class="card">
                         <div class="card-body">
-                            <form action="<?= base_url('penjual/tambah') ?>" method="post">
+                            <form action="<?= base_url('penjual/tambah') ?>" enctype="multipart/form-data" method="post">
                                 <h5 class="card-title">
                                     <b>Informasi Penjual</b>
                                 </h5>
@@ -51,7 +54,7 @@
                                                 <img src="<?= base_url('img/Default/pilih gambar.png"') ?> class="img-fluid" id="img_preview" alt="" width="40%">
                                             </div>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="gambar_penjual" name="filename" onchange="preview(this)" accept="image/*">
+                                                <input type="file" class="custom-file-input" id="gambar_penjual" name="gambar_penjual" onchange="preview(this)" accept="image/*">
                                                 <label class="custom-file-label" for="gambar_penjual">Pilih Gambar</label>
                                             </div>
                                         </div>

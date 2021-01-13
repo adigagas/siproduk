@@ -12,6 +12,9 @@
     <?php $this->load->view("template/navbar.php") ?>
     <!-- end Navbar -->
 
+    <!-- Alert -->
+    <?= $this->session->flashdata('message'); ?>
+
     <!-- Content -->
     <div class="content" id="content">
 
