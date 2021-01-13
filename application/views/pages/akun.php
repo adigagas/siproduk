@@ -65,7 +65,7 @@
                             <div class="row my-4">
                                 <div class="col-lg">
                                     <span class="result-note">
-                                        Menampilkan <b>15</b> dari <b>50</b> hasil
+                                    Menampilkan <b><?php if($total_rows<$per_page) {echo $total_rows; } else { echo $per_page; } ?></b> dari <b><?= $total_rows ?></b> hasil <?php if(isset($keyword) || isset($f_kategori)){ echo 'pencarian '; } ?> <b class="text-primary"><?php if(isset($f_kategori)){ echo $f_kategori; } ?></b> <b class="text-primary"><?php if(isset($keyword)){ echo $keyword; } ?></b>
                                     </span>
                                 </div>
                                 <div class="col-xl-3 col-lg-6 text-right">
