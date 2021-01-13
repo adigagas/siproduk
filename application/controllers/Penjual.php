@@ -91,6 +91,8 @@ class Penjual extends CI_Controller {
 			// ambil id_penjual
 			// $id_penjual = $data['penjual']->id_penjual;
 
+			// Pagination
+			// data produk
 			$this->db->select('tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga_terendah, tb_produk.gambar');
 			$this->db->from('tb_produk');
 			$this->db->join('tb_ketersediaan', 'tb_produk.id_produk = tb_ketersediaan.id_produk', 'left');
@@ -99,7 +101,7 @@ class Penjual extends CI_Controller {
 			// config
 			$config['base_url'] = 'http://localhost/siproduk/penjual/etalase/'.$id_penjual.'/index';
 			$config['total_rows'] = $this->db->count_all_results();
-			$config['per_page'] = 2;
+			$config['per_page'] = 20;
 			$data['total_rows'] = $config['total_rows'];
 			$data['per_page'] = $config['per_page'];
 
