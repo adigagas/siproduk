@@ -31,7 +31,10 @@
                         </div>
                         <div class="card filter-card" id="filter">
                             <div class="card-body">
-                                <h5 class="card-title"><b>Harga</b></h5>
+                                <h5 class="card-title"><b>Filter</b></h5>
+
+                                <hr>
+                                <h5 class="card-title">Harga</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">filter harga</h6>
                                 <div class="form-group">
                                     <input type="number" class="form-control"  id="hargamin" name="hargamin" placeholder="Harga Minimal Rp." onKeyPress="if(this.value.length==11) return false;" value="<?= $hargamin ?>">
@@ -40,9 +43,9 @@
                                     <input type="number" class="form-control" id="hargamax" name="hargamax" placeholder="Harga Maksimal Rp." onKeyPress="if(this.value.length==11) return false;" value="<?= $hargamax ?>">
                                 </div>
                                 <i><small class="text-danger">* harga maksimal harus lebih tinggi dari harga minimal</small></i>
-                                <hr>
-
-                                <h5 class="card-title"><b>Kategori</b></h5>
+                                
+                                <hr class="mt-5">
+                                <h5 class="card-title">Kategori</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">filter katergori</h6>
                                 <div class="form-group">
                                     <select type="text" name="f_kategori" id="kategori" class="form-control selectpicker" data-live-search="true">
@@ -52,15 +55,8 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <hr>
+                                <hr class="mt-5">
 
-                                <h5 class="card-title"><b>Lokasi</b></h5>
-                                <h6 class="card-subtitle mb-2 text-muted">filter lokasi</h6>
-                                <div class="form-group">
-                                    <select type="text" id="provinsi" class="form-control selectpicker" data-live-search="true">
-                                        <option value="">--pilih provinsi--</option>
-                                    </select>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -99,6 +99,8 @@ class M_Produk extends CI_Model
             $this->db->where('id_kategori', $f_kategori);
         }
 
+        $this->db->order_by('id_produk', 'DESC');
+
         return $this->db->get($this->_tProduk, $limit, $start)->result();
     }
 
@@ -178,6 +180,18 @@ class M_Produk extends CI_Model
         return $this->db->get()->row();
         // return $this->db->get_where($this->db, ['id_produk' => $id_produk])->row();
         // return $this->db->get_where($this->_tProduk, ["id_produk" => $id_produk])->row();
+    }
+
+    public function getProdykByPenjual($limit, $start, $id_penjual)
+    {
+        $this->db->select('tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga_terendah, tb_produk.gambar');
+        $this->db->from('tb_produk');
+        $this->db->join('tb_ketersediaan', 'tb_produk.id_produk = tb_ketersediaan.id_produk', 'left');
+        $this->db->where('tb_ketersediaan.id_penjual', $id_penjual);
+        // $this->db->group_by('tb_produk.id_produk');
+        $this->db->limit($limit, $start);   
+
+        return $this->db->get()->result();
     }
 
     public function getById($id_produk)

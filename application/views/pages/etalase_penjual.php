@@ -22,19 +22,19 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-xl-2">
-                                    <img src="../img/Default/Logo Brand.jpg" alt="" class="img-fluid border">
+                                    <img src="<?= base_url('img/penjual.'.$penjual->gambar_penjual) ?>" alt="" class="img-fluid border">
                                 </div>
                                 <div class="col-xl">
                                     <h5 class="">
-                                        <b>Araya Computer</b>
+                                        <b><?= $penjual->nama_penjual ?></b>
                                     </h5>
-                                    Produk di toko ini : 11
+                                    Produk di toko ini : <?= $penjual->jumlah_produk ?>
                                     <div class="mt-4 text-secondary">
-                                        <i class="fas fa-map-marker-alt"></i> Jawa Timur
+                                        <i class="fas fa-map-marker-alt"></i> <?= $penjual->provinsi ?>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 text-right">
-                                    <a href="<?= base_url('penjual/sunting') ?>" class="btn btn-outline-secondary"><i class="fas fa-edit"></i></a>
+                                    <a href="<?= base_url('penjual/sunting/'.$penjual->id_penjual) ?>" class="btn btn-outline-secondary"><i class="fas fa-edit"></i></a>
                                     <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
@@ -72,90 +72,37 @@
 
                     <!-- Item Section -->
                     <div class="row">
-                        <div class="col-xl-3">
-                            <a href="<?= base_url('produk/detail') ?>" class="card card-item" id="">
-                                <div class="img-res">
-                                    <img src="<?= base_url('img/Default/Buku.jpg') ?>" class="img-fluid" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <div class="item-name">
-                                        Buku Tulis
+                        <?php foreach ($produk as $p) : ?>
+                            <div class="col-xl-3 col-md-4 col-sm-2 mb-3">
+                                <a href="<?= base_url('produk/detail/'.$p->id_produk) ?>" class="card card-item" id="" >
+                                    <div class="img-res">
+                                        <?php if(is_null($p->gambar)) : ?>
+                                        <img src="<?= base_url('img/Default/buku.png') ?>" class="img-fluid" alt="">
+                                        <?php else : ?>
+                                            <img src="<?= base_url('img/produk/'.$p->gambar) ?>" class="img-fluid" alt="">
+                                        <?php endif ?>
                                     </div>
-                                    <div class="item-price">
-                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
+                                    <div class="card-body">
+                                        <div class="item-name">
+                                            <?= $p->nama_produk ?>
+                                        </div>
+                                        <div class="item-price">
+                                            <small class="text-dark" >Mulai dari</small>
+                                            <br>
+                                            <small>Rp</small> <?= number_format($p->harga_terendah, 0, ',', '.') ?>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-3">
-                            <a href="<?= base_url('produk/detail') ?>" class="card card-item" id="">
-                                <div class="img-res">
-                                    <img src="<?= base_url('img/Default/Buku.jpg') ?>" class="img-fluid" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <div class="item-name">
-                                        Buku Tulis
-                                    </div>
-                                    <div class="item-price">
-                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-3">
-                            <a href="<?= base_url('produk/detail') ?>" class="card card-item" id="">
-                                <div class="img-res">
-                                    <img src="<?= base_url('img/Default/Buku.jpg') ?>" class="img-fluid" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <div class="item-name">
-                                        Buku Tulis
-                                    </div>
-                                    <div class="item-price">
-                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-3">
-                            <a href="<?= base_url('produk/detail') ?>" class="card card-item" id="">
-                                <div class="img-res">
-                                    <img src="<?= base_url('img/Default/Buku.jpg') ?>" class="img-fluid" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <div class="item-name">
-                                        Buku Tulis
-                                    </div>
-                                    <div class="item-price">
-                                        <small>Rp</small> 100.000 ~ <small>Rp</small> 5.000.000
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                        
                     </div>
                     <!-- end Item Section -->
 
                     <!-- Pagination -->
                     <div class="row">
                         <div class="col d-flex justify-content-end">
-                            <nav aria-label="...">
-                                <ul class="pagination">
-                                    <li class="page-item disabled">
-                                        <span class="page-link"><i class="fas fa-angle-double-left"></i></span>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item active" aria-current="page">
-                                        <span class="page-link">
-                                            2
-                                            <span class="sr-only">(current)</span>
-                                        </span>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            <?= $this->pagination->create_links(); ?>
                         </div>
                     </div>
                     <!-- end Pagination -->

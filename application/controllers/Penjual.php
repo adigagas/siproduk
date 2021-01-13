@@ -76,13 +76,54 @@ class Penjual extends CI_Controller {
 		$this->load->view('pages/penjual', $data);
 	}
 
-	public function etalase()
+	public function etalase($id_penjual = null)
 	{
-		$this->load->view('pages/etalase_penjual');
+		// echo '<pre>',var_dump($id_penjual),'</pre>';
+		// exit();
+
+		// cek id_penjual
+		if(is_null($id_penjual)){
+			redirect(base_url('penjual'));
+		} else {
+			// ambil data penjual
+			$data['penjual'] = $this->M_Penjual->getByID($id_penjual);
+
+			// ambil id_penjual
+			// $id_penjual = $data['penjual']->id_penjual;
+
+			$this->db->select('tb_produk.id_produk, tb_produk.nama_produk, tb_produk.harga_terendah, tb_produk.gambar');
+			$this->db->from('tb_produk');
+			$this->db->join('tb_ketersediaan', 'tb_produk.id_produk = tb_ketersediaan.id_produk', 'left');
+			$this->db->where('tb_ketersediaan.id_penjual', $id_penjual);
+
+			// config
+			$config['base_url'] = 'http://localhost/siproduk/penjual/etalase/'.$id_penjual.'/index';
+			$config['total_rows'] = $this->db->count_all_results();
+			$config['per_page'] = 2;
+			$data['total_rows'] = $config['total_rows'];
+			$data['per_page'] = $config['per_page'];
+
+			// initialize
+			$this->pagination->initialize($config);
+
+			$data['start'] = $this->uri->segment(5);
+
+			// ambil data produk
+			$data['produk'] = $this->M_Produk->getProdykByPenjual($config['per_page'], $data['start'], $id_penjual);
+			// echo '<pre>',var_dump($data),'</pre>';
+			// echo $id_penjual;
+			// exit();
+			$this->load->view('pages/etalase_penjual', $data);
+		}
 	}
 
 	public function tambah()
 	{
+		if ($this->input->post('submit')) {
+            $this->M_Penjual->addPenjual();
+            redirect('penjual');
+		}
+		
 		$this->load->view('pages/tambah_penjual');
 	}
 

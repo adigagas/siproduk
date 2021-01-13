@@ -25,20 +25,20 @@
                 <div class="col-xl-7 col-lg">
                     <div class="card">
                         <div class="card-body">
-                            <form action="">
+                            <form action="<?= base_url('penjual/tambah') ?>" method="post">
                                 <h5 class="card-title">
                                     <b>Informasi Penjual</b>
                                 </h5>
                                 <div class="form-group row">
                                     <label for="nama_penjual" class="col-xl-4">Nama Toko/Penjual</label>
                                     <div class="col-xl">
-                                        <input type="text" id="nama_penjual" class="form-control">
+                                        <input type="text" id="nama_penjual" name="nama_penjual" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="provinsi" class="col-xl-4">Alamat (provinsi)</label>
                                     <div class="col-xl">
-                                        <input type="text" id="provinsi" class="form-control">
+                                        <input type="text" id="provinsi" name="provinsi" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -48,11 +48,11 @@
                                     <div class="col-xl">
                                         <div class="file-img">
                                             <div class="img-preview">
-                                                <img src="../img/Default/pilih gambar.png" class="img-fluid" id="img_preview" alt="" width="40%">
+                                                <img src="<?= base_url('img/Default/pilih gambar.png"') ?> class="img-fluid" id="img_preview" alt="" width="40%">
                                             </div>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="gambar" name="filename" onchange="preview(this)" accept="image/*">
-                                                <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+                                                <input type="file" class="custom-file-input" id="gambar_penjual" name="filename" onchange="preview(this)" accept="image/*">
+                                                <label class="custom-file-label" for="gambar_penjual">Pilih Gambar</label>
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                                 <div class="form-group row">
                                     <div class="col text-right">
                                         <a href="<?= base_url('penjual') ?>" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
-                                        <button class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                                        <input class="btn btn-primary" type="submit" name="submit" value="Simpan">
                                     </div>
                                 </div>
                             </form>
