@@ -56,7 +56,7 @@ class M_Akun extends CI_Model
         $post = $this->input->post();
         $this->username = $post['username'];
         $this->nama_user = $post['nama_user'];
-        $this->password = $post['password1'];
+        $this->password = password_hash($post['password'], PASSWORD_DEFAULT);
         $this->foto_user = $this->_uploadImage();
         
         $this->db->insert($this->_tAkun, $this);
@@ -70,7 +70,7 @@ class M_Akun extends CI_Model
         $this->id_user= $post['id_user'];
         $this->username= $post['username'];
         $this->nama_user = $post['nama_user'];
-        $this->password = $post['password1'];
+        $this->password = password_hash($post['password'], PASSWORD_DEFAULT);
         $this->foto_user = $this->_uploadImage();
 
         if (!empty($_FILES["foto_user"]["name"])) {
