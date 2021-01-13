@@ -151,13 +151,12 @@ class M_Produk extends CI_Model
         $this->id_kategori = $post['id_kategori'];
 
         if (!empty($_FILES["gambar"]["name"])) {
-            if ($post["old_gambar"] != 'produk.jpg') {
-                unlink(FCPATH . './img/produk/' . $post["old_gambar"]);
-            }
+            $this->_deleteImage($post['id_produk']);
             $this->gambar = $this->_uploadImage();
         } else {
             $this->gambar = $post["old_gambar"];
         }
+
 
         $this->db->update($this->_tProduk, $this, array("id_produk" => $id_produk));
 
@@ -167,6 +166,7 @@ class M_Produk extends CI_Model
     // Menghapus produk
     function deleteProduk($id_produk)
     {
+        $this->_deleteImage($id_produk);
         $this->db->delete($this->_tProduk, array("id_produk" => $id_produk));
         $this->session->set_flashdata('message', '<div class="card-notif notif-success" id="notif"><div class="notif-icon"><i class="fas fa-trash"></i></div><div class="notif-body"><div class="notif-title">Berhasil !</div><small>Berhasil menghapus data produk</small></div><button class="notif-close" onclick="notif_close()"><i class="fas fa-times"></i></button></div>');
     }
@@ -217,11 +217,12 @@ class M_Produk extends CI_Model
 
     private function _uploadImage()
     {
+        $new_name                       = "produk".time().$_FILES["gambar"]['name'];
         $config['upload_path']          =  './img/produk/';
         $config['allowed_types']        = 'gif|jpg|png|JPG|JPEG';
         $config['max_size']             = 90480;
         $config['overwrite']            = true;
-        $config['file_name']            = $_FILES['gambar']['name'];
+        $config['file_name']            = $new_name;
         // 10MB
         $this->load->library('upload', $config);
 

@@ -100,6 +100,8 @@ class Produk extends CI_Controller {
 	public function tambah()
 	{
 		if ($this->input->post('submit')) {
+			echo "<pre>",var_dump($_POST, $_FILES),"</pre>";
+			exit();
             $this->M_Produk->addProduk();
             redirect('produk');
         }
@@ -113,6 +115,8 @@ class Produk extends CI_Controller {
 	public function sunting($id_produk = null)
 	{
 		if ($this->input->post('submit')) {
+			// echo "<pre>",var_dump($_POST, $_FILES),"</pre>";
+			// exit();
             $this->M_Produk->updateProduk($this->input->post('id_produk'));
             redirect('produk/detail/'.$this->input->post('id_produk'));
 		}

@@ -126,22 +126,19 @@
                                 <h5 class="card-title"><b>
                                     Gambar
                                 </b></h5>
+                                                <input type="hidden" id="old_gambar" name="old_gambar" value="<?= $produk->gambar ?>">
                                 <div class="form-group row">
                                     <div class="col-xl">
+                                            
                                         <div class="file-img">
                                             <div class="img-preview">
-                                                <?php if(is_null($produk->gambar)) : ?>
-                                                    <img src="<?= base_url('img/Default/pilih gambar.png') ?>" class="img-fluid" id="img_preview" alt="">
-                                                    <?php else : ?>
-                                                        <img src="<?= base_url('img/produk/'.$produk->gambar) ?>" class="img-fluid" id="img_preview" alt="">
-                                                <?php endif ?>
+                                                <img src="<?= base_url('img/produk/'.$produk->gambar) ?>" class="img-fluid" id="img_preview" alt="">
                                             </div>
                                             <div class="custom-file">
-                                                <input type="hidden" id="old_gambar" name="old_gambar" value="<?= $produk->gambar ?>">
                                                 <input type="file" class="custom-file-input" id="gambar" name="gambar" onchange="preview(this)" accept="image/*">
                                                 <label class="custom-file-label" for="gambar">Pilih Gambar</label>
                                             </div>  
-                                        </div>
+                                        </div> 
                                     </div>
                                 </div>
                             </div>
