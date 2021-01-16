@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jan 2021 pada 00.50
+-- Waktu pembuatan: 17 Jan 2021 pada 00.53
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -310,6 +310,7 @@ CREATE TABLE `tb_transaksi` (
   `waktu` time DEFAULT NULL,
   `grand_total` bigint(20) DEFAULT NULL,
   `progres` tinyint(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
   `id_pembeli` varchar(18) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -317,8 +318,8 @@ CREATE TABLE `tb_transaksi` (
 -- Dumping data untuk tabel `tb_transaksi`
 --
 
-INSERT INTO `tb_transaksi` (`id_transaksi`, `tanggal`, `waktu`, `grand_total`, `progres`, `id_pembeli`) VALUES
-('202001141609097890', '2021-01-15', '05:00:00', 377500, 0, 'CUST20200114160909');
+INSERT INTO `tb_transaksi` (`id_transaksi`, `tanggal`, `waktu`, `grand_total`, `progres`, `status`, `id_pembeli`) VALUES
+('202001141609097890', '2021-01-15', '05:00:00', 377500, 0, '', 'CUST20200114160909');
 
 -- --------------------------------------------------------
 
