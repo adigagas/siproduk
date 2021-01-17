@@ -46,19 +46,21 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <!-- Search -->
-                            <div class="row">
-                                <div class="col-xl-2 col-lg-3">
-                                    <h5 class="mt-2">Pencarian</h5>
-                                </div>
-                                <div class="col-md">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Cari akun..">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" id="button-addon2">Submit</button>
+                            <form action="<?= base_url('akun') ?>" method="post">
+                                <div class="row">
+                                    <div class="col-xl-2 col-lg-3">
+                                        <h5 class="mt-2">Pencarian</h5>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" value="<?= $keyword ?>" id="keyword" name="keyword" placeholder="Cari akun..">
+                                            <div class="input-group-append">
+                                                <input class="btn btn-primary" type="submit" name="cari" id="cari" value="Cari">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                             <!-- end Search -->
 
                             <!-- result info -->
@@ -91,7 +93,10 @@
                                         <tr>
                                             <th scope="row" class="align-middle text-center"><?= ++$start ?></th>
                                             <td class="align-middle">
-                                            <div class="thumbnail"><img src="<?= base_url('img/akun/'. $a->foto_user) ?>" alt="" class="img-fluid img show"></div></td>
+                                                <div class="thumbnail">
+                                                    <img src="<?= base_url('img/akun/'. $a->foto_user) ?>" width="" alt="" class="img-fluid img show">
+                                                </div>
+                                            </td>
                                             <td class="align-middle text-left">
                                                 <?= $a->nama_user ?>
                                             </td>
