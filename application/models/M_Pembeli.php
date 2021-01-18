@@ -95,32 +95,4 @@ class M_Pembeli extends CI_Model
         return $this->db->get_where($this->_tPembeli, ["id_pembeli" => $id_pembeli])->row();
     }
 
-
-    // private function _deleteImage($id_pembeli)
-    // {
-    //     $gtk = $this->getById($id_pembeli);
-    //     if ($gtk->image != "camera.jpg") {
-    //         $filename = explode(".", $gtk->foto_gtk)[0];
-    //         return array_map('unlink', glob(FCPATH . "./vendor/assets/images/$filename.*"));
-    //     }
-    // }
-
-    // private function _uploadImage()
-    // {
-    //     $config['upload_path']          =  './vendor/assets/images/';
-    //     $config['allowed_types']        = 'gif|jpg|png|JPG';
-    //     $config['max_size']             = 9048;
-    //     $config['overwrite']            = true;
-    //     $config['file_name']            = $_FILES['foto_gtk']['name'];
-    //     // 1MB
-    //     // $config['max_width']            = 1024;
-    //     // $config['max_height']           = 768;
-    //     $this->load->library('upload', $config);
-
-    //     if ($this->upload->do_upload('foto_gtk')) {
-    //         return $this->upload->data("file_name");
-    //     }
-
-    //     return "camera.jpg";
-    // }
 }
