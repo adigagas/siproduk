@@ -25,6 +25,7 @@ class M_Ketersediaan extends CI_Model
 
     public function addKetersediaan($id_produk)
     {
+        date_default_timezone_set('Asia/Jakarta');
         $post = $this->input->post();
         $this->situs = $post['situs'];
         $this->tautan_produk = $post['tautan_produk'];
@@ -41,6 +42,7 @@ class M_Ketersediaan extends CI_Model
 
     public function editKetersediaan($id_ketersediaan)
     {
+        date_default_timezone_set('Asia/Jakarta');
         $post = $this->input->post();
         $this->id_ketersediaan = $post['id_ketersediaan'];
         $this->situs = $post['situs'];

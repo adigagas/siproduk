@@ -136,6 +136,7 @@ class M_Penjual extends CI_Model
 
     private function _uploadImage()
     {
+        date_default_timezone_set('Asia/Jakarta');
         $new_name                       = "penjual".time().$_FILES["gambar_penjual"]['name'];
         $config['upload_path']          =  './img/penjual/';
         $config['allowed_types']        = 'gif|jpg|png|JPG|JPEG';

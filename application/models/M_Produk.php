@@ -217,6 +217,7 @@ class M_Produk extends CI_Model
 
     private function _uploadImage()
     {
+        date_default_timezone_set('Asia/Jakarta');
         $new_name                       = "produk".time().$_FILES["gambar"]['name'];
         $config['upload_path']          =  './img/produk/';
         $config['allowed_types']        = 'gif|jpg|png|JPG|JPEG';

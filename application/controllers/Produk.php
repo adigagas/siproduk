@@ -100,8 +100,8 @@ class Produk extends CI_Controller {
 	public function tambah()
 	{
 		if ($this->input->post('submit')) {
-			echo "<pre>",var_dump($_POST, $_FILES),"</pre>";
-			exit();
+			// echo "<pre>",var_dump($_POST, $_FILES),"</pre>";
+			// exit();
             $this->M_Produk->addProduk();
             redirect('produk');
         }
