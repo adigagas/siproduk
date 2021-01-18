@@ -23,6 +23,11 @@
                 <i class="icon-16 fas fa-store"></i> Penjual
             </a>
         </li>
+        <li class="<?php if($this->uri->segment(1) == 'pembeli'){ echo 'active'; } ?>">
+            <a href="<?= base_url('pembeli') ?>">
+                <i class="icon-16 fas fa-users"></i> Pembeli
+            </a>
+        </li>
         <li class="<?php if($this->uri->segment(1) == 'transaksi'){ echo 'active'; } ?>">
             <a href="<?= base_url('transaksi') ?>">
                 <i class="icon-16 fas fa-clipboard-check"></i> Transaksi
@@ -30,7 +35,7 @@
         </li>
         <li class="<?php if($this->uri->segment(1) == 'akun'){ echo 'active'; } ?>">
             <a href="<?= base_url('akun') ?>">
-                <i class="icon-16 fas fa-user"></i> Akun
+                <i class="icon-16 fas fa-key"></i> Akun
             </a>
         </li>
     </ul>
