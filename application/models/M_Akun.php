@@ -109,11 +109,13 @@ class M_Akun extends CI_Model
     
     private function _uploadImage()
     {
+        date_default_timezone_set('Asia/Jakarta');
+        $new_name                       = "akun".time().$_FILES["foto_user"]['name'];
         $config['upload_path']          =  './img/akun/';
         $config['allowed_types']        = 'gif|jpg|png|JPG|JPEG';
         $config['max_size']             = 90480;
         $config['overwrite']            = true;
-        $config['file_name']            = $_FILES['foto_user']['name'];
+        $config['file_name']            = $new_name;
         // 10MB
         $this->load->library('upload', $config);
 
